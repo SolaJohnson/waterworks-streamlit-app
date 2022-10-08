@@ -389,3 +389,43 @@ if param == 'Phosphate PO4 as P':
 
 
 
+ # Design horizontal bar
+    menu = ["Home", "EDA", "Prediction", "About"]
+    selection = option_menu( menu_title=None,
+    options=menu,
+    icons=["house", "graph-up", "textarea-t",  "file-person"],
+    orientation='horizontal',
+    styles={
+                "container": {"padding": "0!important"},
+                "icon": {"color": "orange", "font-size": "25px",  },
+                "nav-link": {
+                    "font-size": "20px",
+                    "text-align": "center",
+                    "margin": "5px",
+                    "--hover-color": "#ccc",
+                },
+                "nav-link-selected": {"background-color": "green"},
+            },
+        )    
+
+
+
+    if selection == "Home":
+        st.markdown('')
+
+    elif selection == "Prediction":
+        st.subheader("Prediction")
+
+    elif selection == "EDA":
+        st.subheader("Exploration of Sentiment and Tweets")
+
+    else:
+        st.subheader('')
+
+
+
+    #Landing page
+    landing = Image.open("resources/imgs/backgroundpix.png")
+    if selection == "Home":
+        st.image(landing)#, height=1500
+

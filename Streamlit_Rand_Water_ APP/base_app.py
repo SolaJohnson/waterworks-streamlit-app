@@ -34,10 +34,10 @@ menu = ["Home", "Water Quality", "Time Series", "About us"]
 selection = option_menu(None, ["Home", "Water Quality", "Time Series", 'About us'], 
     icons=['house', "bi bi-droplet", "bi bi-graph-up", 'bi bi-info-square'], 
     menu_icon="cast", default_index=0, orientation="horizontal",styles={
-        "container": {"padding": "0!important", "background-color": "#c1ddea"},
+        "container": {"padding": "0!important", "background-color": "#D3E2F7"},
         "icon": {"color": "#172d90", "font-size": "15px"}, 
         "nav-link": {"font-size": "15px", "text-align": "left", "margin":"0px", "--hover-color": "#ECFFFF"},
-        "nav-link-selected": {"background-color": "#19a2a2"},
+        "nav-link-selected": {"background-color": "#7CC4F5"},
     })
 
  
@@ -54,20 +54,20 @@ else:
     st.subheader('')
 
 #Landing page
-landing = Image.open('Rand_Water_logo.svg.png')
+landing = Image.open('waterworksRS (2).png')
 if selection == "Home":
-        st.image(landing)#, height=1500,
-        st.markdown("<h1 style='font-size:20px; text-align: center; color:#19a2a2;'>CATCHMENT MONITORING APPLICATION</h1>", unsafe_allow_html=True)
+    st.image(landing)
+
 
 
 #Time Series Page
 if selection == 'Time Series':
 
     #Data preprocessing
-    physical = pd.read_csv(r'C:\Users\Othuke (Local)\OneDrive - Trium Limited\Desktop\GITHUB\streamlit-app\vaalmain_physical_compliance.csv')
-    sample = pd.read_csv(r'C:\Users\Othuke (Local)\OneDrive - Trium Limited\Desktop\GITHUB\streamlit-app\sample.csv')
-    chemical = pd.read_csv(r'C:\Users\Othuke (Local)\OneDrive - Trium Limited\Desktop\GITHUB\streamlit-app\vaalmain_chemical_compliance.csv')
-    bacteriological = pd.read_csv(r'C:\Users\Othuke (Local)\OneDrive - Trium Limited\Desktop\GITHUB\streamlit-app\vaalmain_bacteriological_complicance.csv')
+    physical = pd.read_csv(r'vaalmain_physical_compliance.csv')
+    sample = pd.read_csv(r'sample.csv')
+    chemical = pd.read_csv(r'vaalmain_chemical_compliance.csv')
+    bacteriological = pd.read_csv(r'vaalmain_bacteriological_complicance.csv')
 
     # Step: Sort column(s) year ascending (A-Z), qtr ascending (A-Z)
     data = physical.sort_values(by=['year', 'qtr'], ascending=[True, True])

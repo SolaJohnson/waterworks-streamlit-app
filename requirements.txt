@@ -1,0 +1,8 @@
+streamlit
+base64
+matplotlib
+pandas
+numpy
+streamlit_option_menu
+PIL
+plotly

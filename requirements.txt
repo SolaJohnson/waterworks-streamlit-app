@@ -3,7 +3,6 @@ matplotlib
 pandas
 numpy
 streamlit_option_menu
-PIL
 plotly
 folium
 streamlit_folium

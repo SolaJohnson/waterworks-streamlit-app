@@ -1,0 +1,461 @@
+sample_id,year,qtr,quarter,physical_compliance_%,chemical_compliance_%,bacteriological_compliance_%,biological_compliance_%,Sample_pt_desc,latitude,longitude,overall_compliance_%
+B10,2017,1,Jan-Mar,60.0,81.82,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,60.46
+B10,2017,2,Apr-Jun,80.0,72.73,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,63.18
+B10,2017,3,Jul-Sep,80.0,81.82,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,65.46
+B10,2017,4,Oct-Dec,60.0,63.64,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,55.91
+K19,2017,1,Jan-Mar,80.0,72.73,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,63.18
+K19,2017,2,Apr-Jun,60.0,63.64,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,55.91
+K19,2017,3,Jul-Sep,60.0,72.73,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,58.18
+K19,2017,4,Oct-Dec,20.0,81.82,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,50.46
+LS1,2017,1,Jan-Mar,80.0,72.73,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,38.18
+LS1,2017,2,Apr-Jun,60.0,63.64,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,30.91
+LS1,2017,3,Jul-Sep,60.0,63.64,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,30.91
+LS1,2017,4,Oct-Dec,60.0,72.73,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,33.18
+RV2,2017,1,Jan-Mar,100.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,70.46
+RV2,2017,2,Apr-Jun,80.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,65.46
+RV2,2017,3,Jul-Sep,60.0,72.73,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,58.18
+RV2,2017,4,Oct-Dec,80.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,65.46
+S2,2017,1,Jan-Mar,60.0,90.91,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,62.73
+S2,2017,2,Apr-Jun,60.0,72.73,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,83.18
+S2,2017,3,Jul-Sep,60.0,72.73,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,83.18
+S2,2017,4,Oct-Dec,80.0,72.73,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,88.18
+TW2,2017,1,Jan-Mar,80.0,72.73,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,38.18
+TW2,2017,2,Apr-Jun,80.0,81.82,100.0,0.0,Stream from Webb's Farm ,-26.799,27.908,65.46
+TW2,2017,3,Jul-Sep,60.0,72.73,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,33.18
+TW2,2017,4,Oct-Dec,60.0,72.73,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,33.18
+V17,2017,1,Jan-Mar,100.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,95.46
+V17,2017,2,Apr-Jun,80.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,90.46
+V17,2017,3,Jul-Sep,80.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,90.46
+V17,2017,4,Oct-Dec,60.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,85.46
+V2,2017,1,Jan-Mar,80.0,81.82,0.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,65.46
+V2,2017,2,Apr-Jun,60.0,81.82,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,85.46
+V2,2017,3,Jul-Sep,80.0,72.73,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,88.18
+V2,2017,4,Oct-Dec,80.0,81.82,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,90.46
+VRB20,2017,1,Jan-Mar,100.0,90.91,0.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,72.73
+VRB20,2017,2,Apr-Jun,60.0,90.91,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,87.73
+VRB20,2017,3,Jul-Sep,80.0,81.82,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,90.46
+VRB20,2017,4,Oct-Dec,60.0,72.73,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,83.18
+VRB37,2017,1,Jan-Mar,100.0,81.82,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,70.46
+VRB37,2017,2,Apr-Jun,60.0,72.73,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,58.18
+VRB37,2017,3,Jul-Sep,60.0,81.82,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,60.46
+VRB37,2017,4,Oct-Dec,80.0,81.82,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,65.46
+B10,2018,1,Jan-Mar,60.0,81.82,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,60.46
+B10,2018,2,Apr-Jun,60.0,81.82,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,60.46
+B10,2018,3,Jul-Sep,60.0,54.55,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,53.64
+B10,2018,4,Oct-Dec,60.0,54.55,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,53.64
+K19,2018,1,Jan-Mar,80.0,90.91,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,67.73
+K19,2018,2,Apr-Jun,80.0,81.82,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,65.46
+K19,2018,3,Jul-Sep,40.0,72.73,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,53.18
+K19,2018,4,Oct-Dec,40.0,81.82,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,55.46
+LS1,2018,1,Jan-Mar,60.0,81.82,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,35.46
+LS1,2018,2,Apr-Jun,60.0,72.73,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,33.18
+LS1,2018,3,Jul-Sep,60.0,54.55,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,28.64
+LS1,2018,4,Oct-Dec,60.0,90.91,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,37.73
+RV2,2018,1,Jan-Mar,80.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,65.46
+RV2,2018,2,Apr-Jun,80.0,72.73,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,63.18
+RV2,2018,3,Jul-Sep,60.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,60.46
+RV2,2018,4,Oct-Dec,60.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,60.46
+S2,2018,1,Jan-Mar,60.0,81.82,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,60.46
+S2,2018,2,Apr-Jun,60.0,81.82,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,85.46
+S2,2018,3,Jul-Sep,60.0,72.73,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,83.18
+S2,2018,4,Oct-Dec,60.0,72.73,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,83.18
+TW2,2018,1,Jan-Mar,80.0,81.82,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,40.46
+TW2,2018,2,Apr-Jun,80.0,81.82,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,40.46
+TW2,2018,3,Jul-Sep,60.0,81.82,100.0,0.0,Stream from Webb's Farm ,-26.799,27.908,60.46
+TW2,2018,4,Oct-Dec,60.0,72.73,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,33.18
+V17,2018,1,Jan-Mar,100.0,90.91,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,97.73
+V17,2018,2,Apr-Jun,80.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,90.46
+V17,2018,3,Jul-Sep,60.0,63.64,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,80.91
+V17,2018,4,Oct-Dec,60.0,72.73,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,83.18
+V2,2018,1,Jan-Mar,80.0,90.91,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,92.73
+V2,2018,2,Apr-Jun,80.0,81.82,0.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,65.46
+V2,2018,3,Jul-Sep,80.0,81.82,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,90.46
+V2,2018,4,Oct-Dec,60.0,72.73,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,83.18
+VRB20,2018,1,Jan-Mar,100.0,90.91,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,97.73
+VRB20,2018,2,Apr-Jun,80.0,90.91,0.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,67.73
+VRB20,2018,3,Jul-Sep,60.0,81.82,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,85.46
+VRB20,2018,4,Oct-Dec,80.0,81.82,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,90.46
+VRB37,2018,1,Jan-Mar,100.0,90.91,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,72.73
+VRB37,2018,2,Apr-Jun,80.0,90.91,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,67.73
+VRB37,2018,3,Jul-Sep,60.0,63.64,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,55.91
+VRB37,2018,4,Oct-Dec,60.0,81.82,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,60.46
+B10,2019,1,Jan-Mar,40.0,72.73,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,53.18
+B10,2019,2,Apr-Jun,60.0,72.73,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,58.18
+B10,2019,3,Jul-Sep,60.0,45.45,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,51.36
+B10,2019,4,Oct-Dec,40.0,45.45,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,46.36
+K19,2019,1,Jan-Mar,60.0,81.82,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,60.46
+K19,2019,2,Apr-Jun,20.0,72.73,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,48.18
+K19,2019,3,Jul-Sep,40.0,72.73,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,53.18
+K19,2019,4,Oct-Dec,40.0,72.73,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,53.18
+LS1,2019,1,Jan-Mar,60.0,81.82,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,35.46
+LS1,2019,2,Apr-Jun,80.0,90.91,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,42.73
+LS1,2019,3,Jul-Sep,80.0,81.82,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,40.46
+LS1,2019,4,Oct-Dec,80.0,81.82,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,40.46
+RV2,2019,1,Jan-Mar,60.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,60.46
+RV2,2019,2,Apr-Jun,60.0,72.73,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,58.18
+RV2,2019,3,Jul-Sep,40.0,72.73,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,53.18
+RV2,2019,4,Oct-Dec,40.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,55.46
+S2,2019,1,Jan-Mar,60.0,81.82,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,60.46
+S2,2019,2,Apr-Jun,60.0,72.73,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,83.18
+S2,2019,3,Jul-Sep,80.0,54.55,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,83.64
+S2,2019,4,Oct-Dec,60.0,54.55,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,53.64
+TW2,2019,1,Jan-Mar,80.0,63.64,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,35.91
+TW2,2019,2,Apr-Jun,60.0,72.73,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,33.18
+TW2,2019,3,Jul-Sep,80.0,63.64,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,35.91
+TW2,2019,4,Oct-Dec,100.0,63.64,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,40.91
+V17,2019,1,Jan-Mar,80.0,90.91,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,92.73
+V17,2019,2,Apr-Jun,80.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,90.46
+V17,2019,3,Jul-Sep,80.0,81.82,0.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,65.46
+V17,2019,4,Oct-Dec,40.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,80.46
+V2,2019,1,Jan-Mar,60.0,72.73,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,83.18
+V2,2019,2,Apr-Jun,60.0,90.91,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,87.73
+V2,2019,3,Jul-Sep,60.0,72.73,0.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,58.18
+V2,2019,4,Oct-Dec,60.0,72.73,0.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,58.18
+VRB20,2019,1,Jan-Mar,60.0,81.82,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,85.46
+VRB20,2019,2,Apr-Jun,60.0,81.82,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,85.46
+VRB20,2019,3,Jul-Sep,40.0,81.82,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,80.46
+VRB20,2019,4,Oct-Dec,60.0,81.82,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,85.46
+VRB37,2019,1,Jan-Mar,60.0,72.73,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,58.18
+VRB37,2019,2,Apr-Jun,60.0,81.82,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,60.46
+VRB37,2019,3,Jul-Sep,60.0,72.73,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,58.18
+VRB37,2019,4,Oct-Dec,40.0,72.73,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,53.18
+B10,2020,1,Jan-Mar,40.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,57.73
+B10,2020,2,Apr-Jun,60.0,81.82,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,60.46
+B10,2020,3,Jul-Sep,60.0,81.82,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,60.46
+B10,2020,4,Oct-Dec,40.0,72.73,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,53.18
+K19,2020,1,Jan-Mar,40.0,72.73,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,53.18
+K19,2020,2,Apr-Jun,40.0,81.82,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,55.46
+K19,2020,3,Jul-Sep,40.0,81.82,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,55.46
+K19,2020,4,Oct-Dec,40.0,81.82,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,55.46
+LS1,2020,1,Jan-Mar,60.0,72.73,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,33.18
+LS1,2020,2,Apr-Jun,40.0,18.18,100.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,39.54
+LS1,2020,3,Jul-Sep,60.0,90.91,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,37.73
+LS1,2020,4,Oct-Dec,60.0,72.73,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,33.18
+RV2,2020,1,Jan-Mar,60.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,60.46
+RV2,2020,2,Apr-Jun,60.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,60.46
+RV2,2020,3,Jul-Sep,60.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,60.46
+RV2,2020,4,Oct-Dec,40.0,72.73,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,53.18
+S2,2020,1,Jan-Mar,40.0,90.91,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,82.73
+S2,2020,2,Apr-Jun,60.0,81.82,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,60.46
+S2,2020,3,Jul-Sep,60.0,81.82,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,85.46
+S2,2020,4,Oct-Dec,60.0,72.73,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,58.18
+TW2,2020,1,Jan-Mar,60.0,81.82,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,35.46
+TW2,2020,2,Apr-Jun,40.0,18.18,100.0,0.0,Stream from Webb's Farm ,-26.799,27.908,39.54
+TW2,2020,3,Jul-Sep,60.0,81.82,100.0,0.0,Stream from Webb's Farm ,-26.799,27.908,60.46
+TW2,2020,4,Oct-Dec,80.0,72.73,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,38.18
+V17,2020,1,Jan-Mar,60.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,85.46
+V17,2020,2,Apr-Jun,80.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,90.46
+V17,2020,3,Jul-Sep,60.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,85.46
+V17,2020,4,Oct-Dec,60.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,85.46
+V2,2020,1,Jan-Mar,60.0,90.91,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,87.73
+V2,2020,2,Apr-Jun,60.0,90.91,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,87.73
+V2,2020,3,Jul-Sep,60.0,90.91,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,87.73
+V2,2020,4,Oct-Dec,60.0,90.91,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,87.73
+VRB20,2020,1,Jan-Mar,60.0,81.82,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,85.46
+VRB20,2020,2,Apr-Jun,60.0,81.82,0.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,60.46
+VRB20,2020,3,Jul-Sep,60.0,81.82,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,85.46
+VRB20,2020,4,Oct-Dec,80.0,81.82,0.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,65.46
+VRB37,2020,1,Jan-Mar,80.0,81.82,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,65.46
+VRB37,2020,2,Apr-Jun,80.0,81.82,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,65.46
+VRB37,2020,3,Jul-Sep,60.0,81.82,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,60.46
+VRB37,2020,4,Oct-Dec,60.0,81.82,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,60.46
+B10,2021,1,Jan-Mar,40.0,54.55,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,48.64
+B10,2021,2,Apr-Jun,80.0,81.82,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,65.46
+B10,2021,3,Jul-Sep,80.0,54.55,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,58.64
+B10,2021,4,Oct-Dec,60.0,72.73,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,58.18
+K19,2021,1,Jan-Mar,60.0,81.82,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,60.46
+K19,2021,2,Apr-Jun,60.0,81.82,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,60.46
+K19,2021,3,Jul-Sep,60.0,72.73,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,58.18
+K19,2021,4,Oct-Dec,60.0,72.73,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,58.18
+LS1,2021,1,Jan-Mar,60.0,72.73,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,33.18
+LS1,2021,2,Apr-Jun,100.0,81.82,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,45.46
+LS1,2021,3,Jul-Sep,80.0,81.82,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,40.46
+LS1,2021,4,Oct-Dec,60.0,63.64,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,30.91
+RV2,2021,1,Jan-Mar,60.0,45.45,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,51.36
+RV2,2021,2,Apr-Jun,80.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,65.46
+RV2,2021,3,Jul-Sep,80.0,72.73,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,63.18
+RV2,2021,4,Oct-Dec,60.0,72.73,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,58.18
+S2,2021,1,Jan-Mar,40.0,54.55,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,48.64
+S2,2021,2,Apr-Jun,80.0,81.82,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,90.46
+S2,2021,3,Jul-Sep,80.0,54.55,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,83.64
+S2,2021,4,Oct-Dec,60.0,72.73,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,58.18
+TW2,2021,1,Jan-Mar,60.0,36.36,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,24.09
+TW2,2021,2,Apr-Jun,100.0,81.82,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,45.46
+TW2,2021,3,Jul-Sep,100.0,81.82,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,45.46
+TW2,2021,4,Oct-Dec,100.0,63.64,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,40.91
+V17,2021,1,Jan-Mar,60.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,85.46
+V17,2021,2,Apr-Jun,100.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,95.46
+V17,2021,3,Jul-Sep,80.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,90.46
+V17,2021,4,Oct-Dec,100.0,72.73,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,93.18
+V2,2021,1,Jan-Mar,60.0,54.55,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,78.64
+V2,2021,2,Apr-Jun,80.0,90.91,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,92.73
+V2,2021,3,Jul-Sep,80.0,81.82,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,90.46
+V2,2021,4,Oct-Dec,100.0,90.91,100.0,0.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,72.73
+VRB20,2021,1,Jan-Mar,60.0,90.91,0.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,62.73
+VRB20,2021,2,Apr-Jun,80.0,81.82,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,90.46
+VRB20,2021,3,Jul-Sep,80.0,81.82,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,90.46
+VRB20,2021,4,Oct-Dec,80.0,72.73,0.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,38.18
+VRB37,2021,1,Jan-Mar,60.0,81.82,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,60.46
+VRB37,2021,2,Apr-Jun,80.0,81.82,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,65.46
+VRB37,2021,3,Jul-Sep,80.0,72.73,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,63.18
+VRB37,2021,4,Oct-Dec,80.0,72.73,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,63.18
+B10,2011,1,Jan-Mar,100.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,72.73
+B10,2011,2,Apr-Jun,100.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,72.73
+B10,2011,3,Jul-Sep,80.0,81.82,100.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,90.46
+B10,2011,4,Oct-Dec,80.0,81.82,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,65.46
+K19,2011,1,Jan-Mar,100.0,90.91,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,72.73
+K19,2011,2,Apr-Jun,100.0,81.82,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,70.46
+K19,2011,3,Jul-Sep,80.0,81.82,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,65.46
+K19,2011,4,Oct-Dec,80.0,81.82,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,65.46
+LS1,2011,1,Jan-Mar,100.0,90.91,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,47.73
+LS1,2011,2,Apr-Jun,40.0,63.64,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,25.91
+LS1,2011,3,Jul-Sep,40.0,72.73,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,28.18
+LS1,2011,4,Oct-Dec,60.0,81.82,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,35.46
+RV2,2011,1,Jan-Mar,60.0,90.91,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,62.73
+RV2,2011,2,Apr-Jun,80.0,90.91,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,67.73
+RV2,2011,3,Jul-Sep,100.0,90.91,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,72.73
+RV2,2011,4,Oct-Dec,60.0,90.91,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,62.73
+S2,2011,1,Jan-Mar,100.0,90.91,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,72.73
+S2,2011,2,Apr-Jun,100.0,90.91,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,72.73
+S2,2011,3,Jul-Sep,80.0,90.91,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,92.73
+S2,2011,4,Oct-Dec,80.0,90.91,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,92.73
+TW2,2011,1,Jan-Mar,80.0,81.82,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,40.46
+TW2,2011,2,Apr-Jun,80.0,81.82,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,40.46
+TW2,2011,3,Jul-Sep,80.0,72.73,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,38.18
+TW2,2011,4,Oct-Dec,80.0,72.73,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,38.18
+V17,2011,1,Jan-Mar,100.0,81.82,0.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,70.46
+V17,2011,2,Apr-Jun,80.0,90.91,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,92.73
+V17,2011,3,Jul-Sep,100.0,90.91,0.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,72.73
+V17,2011,4,Oct-Dec,80.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,90.46
+V2,2011,1,Jan-Mar,80.0,81.82,0.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,65.46
+V2,2011,2,Apr-Jun,80.0,81.82,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,90.46
+V2,2011,3,Jul-Sep,80.0,72.73,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,88.18
+V2,2011,4,Oct-Dec,80.0,81.82,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,90.46
+VRB20,2011,1,Jan-Mar,80.0,90.91,100.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,67.73
+VRB20,2011,2,Apr-Jun,100.0,90.91,100.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,72.73
+VRB20,2011,3,Jul-Sep,100.0,90.91,100.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,72.73
+VRB20,2011,4,Oct-Dec,100.0,90.91,100.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,72.73
+VRB37,2011,1,Jan-Mar,80.0,90.91,0.0,0.0,Vaal River @ 37 km Beacon ,-26.691,27.935,42.73
+VRB37,2011,2,Apr-Jun,100.0,81.82,0.0,0.0,Vaal River @ 37 km Beacon ,-26.691,27.935,45.46
+VRB37,2011,3,Jul-Sep,100.0,81.82,0.0,0.0,Vaal River @ 37 km Beacon ,-26.691,27.935,45.46
+VRB37,2011,4,Oct-Dec,60.0,81.82,0.0,0.0,Vaal River @ 37 km Beacon ,-26.691,27.935,35.46
+B10,2012,1,Jan-Mar,100.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,72.73
+B10,2012,2,Apr-Jun,80.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,67.73
+B10,2012,3,Jul-Sep,100.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,72.73
+B10,2012,4,Oct-Dec,80.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,67.73
+K19,2012,1,Jan-Mar,80.0,90.91,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,67.73
+K19,2012,2,Apr-Jun,100.0,90.91,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,72.73
+K19,2012,3,Jul-Sep,60.0,90.91,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,62.73
+K19,2012,4,Oct-Dec,100.0,90.91,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,72.73
+LS1,2012,1,Jan-Mar,60.0,72.73,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,33.18
+LS1,2012,2,Apr-Jun,80.0,81.82,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,40.46
+LS1,2012,3,Jul-Sep,80.0,72.73,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,38.18
+LS1,2012,4,Oct-Dec,60.0,90.91,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,37.73
+RV2,2012,1,Jan-Mar,80.0,90.91,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,67.73
+RV2,2012,2,Apr-Jun,100.0,90.91,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,72.73
+RV2,2012,3,Jul-Sep,100.0,90.91,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,72.73
+RV2,2012,4,Oct-Dec,60.0,90.91,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,62.73
+S2,2012,1,Jan-Mar,100.0,90.91,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,72.73
+S2,2012,2,Apr-Jun,100.0,90.91,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,97.73
+S2,2012,3,Jul-Sep,100.0,90.91,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,97.73
+S2,2012,4,Oct-Dec,80.0,90.91,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,67.73
+TW2,2012,1,Jan-Mar,80.0,63.64,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,35.91
+TW2,2012,2,Apr-Jun,80.0,81.82,100.0,0.0,Stream from Webb's Farm ,-26.799,27.908,65.46
+TW2,2012,3,Jul-Sep,80.0,81.82,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,40.46
+TW2,2012,4,Oct-Dec,80.0,81.82,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,40.46
+V17,2012,1,Jan-Mar,100.0,90.91,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,97.73
+V17,2012,2,Apr-Jun,100.0,90.91,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,97.73
+V17,2012,3,Jul-Sep,100.0,90.91,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,97.73
+V17,2012,4,Oct-Dec,100.0,90.91,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,97.73
+V2,2012,1,Jan-Mar,80.0,81.82,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,90.46
+V2,2012,2,Apr-Jun,100.0,100.0,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,100.0
+V2,2012,3,Jul-Sep,100.0,90.91,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,97.73
+V2,2012,4,Oct-Dec,100.0,81.82,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,95.46
+VRB20,2012,1,Jan-Mar,100.0,90.91,100.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,72.73
+VRB20,2012,2,Apr-Jun,100.0,90.91,100.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,72.73
+VRB20,2012,3,Jul-Sep,100.0,90.91,100.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,72.73
+VRB20,2012,4,Oct-Dec,100.0,90.91,100.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,72.73
+VRB37,2012,1,Jan-Mar,100.0,90.91,0.0,0.0,Vaal River @ 37 km Beacon ,-26.691,27.935,47.73
+VRB37,2012,2,Apr-Jun,100.0,90.91,0.0,0.0,Vaal River @ 37 km Beacon ,-26.691,27.935,47.73
+VRB37,2012,3,Jul-Sep,100.0,90.91,0.0,0.0,Vaal River @ 37 km Beacon ,-26.691,27.935,47.73
+VRB37,2012,4,Oct-Dec,80.0,90.91,0.0,0.0,Vaal River @ 37 km Beacon ,-26.691,27.935,42.73
+B10,2013,1,Jan-Mar,100.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,72.73
+B10,2013,2,Apr-Jun,100.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,72.73
+B10,2013,3,Jul-Sep,80.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,67.73
+B10,2013,4,Oct-Dec,40.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,57.73
+K19,2013,1,Jan-Mar,100.0,90.91,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,72.73
+K19,2013,2,Apr-Jun,80.0,90.91,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,67.73
+K19,2013,3,Jul-Sep,100.0,90.91,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,72.73
+K19,2013,4,Oct-Dec,60.0,90.91,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,62.73
+LS1,2013,1,Jan-Mar,60.0,90.91,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,37.73
+LS1,2013,2,Apr-Jun,60.0,72.73,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,33.18
+LS1,2013,3,Jul-Sep,60.0,54.55,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,28.64
+LS1,2013,4,Oct-Dec,60.0,81.82,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,35.46
+RV2,2013,1,Jan-Mar,100.0,90.91,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,72.73
+RV2,2013,2,Apr-Jun,80.0,90.91,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,67.73
+RV2,2013,3,Jul-Sep,100.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,70.46
+RV2,2013,4,Oct-Dec,80.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,65.46
+S2,2013,1,Jan-Mar,100.0,90.91,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,72.73
+S2,2013,2,Apr-Jun,100.0,90.91,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,72.73
+S2,2013,3,Jul-Sep,80.0,90.91,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,92.73
+S2,2013,4,Oct-Dec,80.0,90.91,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,67.73
+TW2,2013,1,Jan-Mar,80.0,81.82,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,40.46
+TW2,2013,2,Apr-Jun,80.0,81.82,100.0,0.0,Stream from Webb's Farm ,-26.799,27.908,65.46
+TW2,2013,3,Jul-Sep,80.0,81.82,100.0,0.0,Stream from Webb's Farm ,-26.799,27.908,65.46
+TW2,2013,4,Oct-Dec,80.0,72.73,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,38.18
+V17,2013,1,Jan-Mar,100.0,90.91,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,97.73
+V17,2013,2,Apr-Jun,100.0,90.91,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,97.73
+V17,2013,3,Jul-Sep,100.0,90.91,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,97.73
+V17,2013,4,Oct-Dec,100.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,95.46
+V2,2013,1,Jan-Mar,100.0,81.82,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,95.46
+V2,2013,2,Apr-Jun,80.0,90.91,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,92.73
+V2,2013,3,Jul-Sep,80.0,81.82,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,90.46
+V2,2013,4,Oct-Dec,80.0,81.82,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,90.46
+VRB20,2013,1,Jan-Mar,100.0,90.91,100.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,72.73
+VRB20,2013,2,Apr-Jun,100.0,90.91,100.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,72.73
+VRB20,2013,3,Jul-Sep,100.0,90.91,100.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,72.73
+VRB20,2013,4,Oct-Dec,100.0,90.91,100.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,72.73
+VRB37,2013,1,Jan-Mar,100.0,90.91,0.0,0.0,Vaal River @ 37 km Beacon ,-26.691,27.935,47.73
+VRB37,2013,2,Apr-Jun,100.0,90.91,0.0,0.0,Vaal River @ 37 km Beacon ,-26.691,27.935,47.73
+VRB37,2013,3,Jul-Sep,100.0,90.91,0.0,0.0,Vaal River @ 37 km Beacon ,-26.691,27.935,47.73
+VRB37,2013,4,Oct-Dec,100.0,90.91,0.0,0.0,Vaal River @ 37 km Beacon ,-26.691,27.935,47.73
+B10,2014,1,Jan-Mar,100.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,72.73
+B10,2014,2,Apr-Jun,100.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,72.73
+B10,2014,3,Jul-Sep,100.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,72.73
+B10,2014,4,Oct-Dec,40.0,81.82,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,55.46
+K19,2014,1,Jan-Mar,80.0,90.91,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,67.73
+K19,2014,2,Apr-Jun,100.0,90.91,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,72.73
+K19,2014,3,Jul-Sep,80.0,81.82,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,65.46
+K19,2014,4,Oct-Dec,40.0,81.82,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,55.46
+LS1,2014,1,Jan-Mar,60.0,54.55,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,28.64
+LS1,2014,2,Apr-Jun,60.0,63.64,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,30.91
+LS1,2014,3,Jul-Sep,80.0,81.82,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,40.46
+LS1,2014,4,Oct-Dec,40.0,90.91,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,32.73
+RV2,2014,1,Jan-Mar,60.0,90.91,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,62.73
+RV2,2014,2,Apr-Jun,100.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,70.46
+RV2,2014,3,Jul-Sep,80.0,72.73,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,63.18
+RV2,2014,4,Oct-Dec,80.0,72.73,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,63.18
+S2,2014,1,Jan-Mar,60.0,90.91,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,62.73
+S2,2014,2,Apr-Jun,100.0,90.91,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,97.73
+S2,2014,3,Jul-Sep,100.0,90.91,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,97.73
+S2,2014,4,Oct-Dec,80.0,90.91,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,67.73
+TW2,2014,1,Jan-Mar,80.0,72.73,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,38.18
+TW2,2014,2,Apr-Jun,80.0,81.82,100.0,0.0,Stream from Webb's Farm ,-26.799,27.908,65.46
+TW2,2014,3,Jul-Sep,80.0,72.73,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,38.18
+TW2,2014,4,Oct-Dec,60.0,81.82,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,35.46
+V17,2014,1,Jan-Mar,80.0,90.91,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,92.73
+V17,2014,2,Apr-Jun,100.0,90.91,0.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,72.73
+V17,2014,3,Jul-Sep,100.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,95.46
+V17,2014,4,Oct-Dec,100.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,95.46
+V2,2014,1,Jan-Mar,80.0,81.82,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,90.46
+V2,2014,2,Apr-Jun,80.0,81.82,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,90.46
+V2,2014,3,Jul-Sep,80.0,72.73,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,88.18
+V2,2014,4,Oct-Dec,80.0,72.73,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,88.18
+VRB20,2014,1,Jan-Mar,60.0,90.91,100.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,62.73
+VRB20,2014,2,Apr-Jun,100.0,90.91,100.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,72.73
+VRB20,2014,3,Jul-Sep,100.0,90.91,100.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,72.73
+VRB20,2014,4,Oct-Dec,100.0,90.91,100.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,72.73
+VRB37,2014,1,Jan-Mar,100.0,90.91,0.0,0.0,Vaal River @ 37 km Beacon ,-26.691,27.935,47.73
+VRB37,2014,2,Apr-Jun,100.0,90.91,0.0,0.0,Vaal River @ 37 km Beacon ,-26.691,27.935,47.73
+VRB37,2014,3,Jul-Sep,100.0,90.91,0.0,0.0,Vaal River @ 37 km Beacon ,-26.691,27.935,47.73
+VRB37,2014,4,Oct-Dec,100.0,81.82,100.0,0.0,Vaal River @ 37 km Beacon ,-26.691,27.935,70.46
+B10,2015,1,Jan-Mar,80.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,67.73
+B10,2015,2,Apr-Jun,100.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,72.73
+B10,2015,3,Jul-Sep,80.0,90.91,0.0,0.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,42.73
+B10,2015,4,Oct-Dec,60.0,72.73,0.0,0.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,33.18
+K19,2015,1,Jan-Mar,60.0,72.73,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,58.18
+K19,2015,2,Apr-Jun,80.0,63.64,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,60.91
+K19,2015,3,Jul-Sep,80.0,72.73,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,63.18
+K19,2015,4,Oct-Dec,80.0,72.73,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,63.18
+LS1,2015,1,Jan-Mar,60.0,72.73,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,33.18
+LS1,2015,2,Apr-Jun,80.0,90.91,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,42.73
+LS1,2015,3,Jul-Sep,80.0,72.73,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,38.18
+LS1,2015,4,Oct-Dec,80.0,63.64,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,35.91
+RV2,2015,1,Jan-Mar,60.0,72.73,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,58.18
+RV2,2015,2,Apr-Jun,80.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,65.46
+RV2,2015,3,Jul-Sep,80.0,72.73,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,63.18
+RV2,2015,4,Oct-Dec,100.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,70.46
+S2,2015,1,Jan-Mar,80.0,90.91,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,92.73
+S2,2015,2,Apr-Jun,100.0,90.91,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,97.73
+S2,2015,3,Jul-Sep,80.0,90.91,100.0,0.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,67.73
+S2,2015,4,Oct-Dec,80.0,90.91,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,92.73
+TW2,2015,1,Jan-Mar,60.0,72.73,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,33.18
+TW2,2015,2,Apr-Jun,80.0,81.82,100.0,0.0,Stream from Webb's Farm ,-26.799,27.908,65.46
+TW2,2015,3,Jul-Sep,80.0,81.82,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,40.46
+TW2,2015,4,Oct-Dec,80.0,72.73,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,38.18
+V17,2015,1,Jan-Mar,100.0,90.91,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,97.73
+V17,2015,2,Apr-Jun,100.0,90.91,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,97.73
+V17,2015,3,Jul-Sep,80.0,90.91,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,92.73
+V17,2015,4,Oct-Dec,100.0,90.91,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,97.73
+V2,2015,1,Jan-Mar,80.0,72.73,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,88.18
+V2,2015,2,Apr-Jun,100.0,72.73,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,93.18
+V2,2015,3,Jul-Sep,100.0,72.73,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,93.18
+V2,2015,4,Oct-Dec,100.0,72.73,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,93.18
+VRB20,2015,1,Jan-Mar,100.0,90.91,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,97.73
+VRB20,2015,2,Apr-Jun,80.0,81.82,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,90.46
+VRB20,2015,3,Jul-Sep,80.0,81.82,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,90.46
+VRB20,2015,4,Oct-Dec,100.0,81.82,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,95.46
+VRB37,2015,1,Jan-Mar,100.0,90.91,0.0,0.0,Vaal River @ 37 km Beacon ,-26.691,27.935,47.73
+VRB37,2015,2,Apr-Jun,60.0,81.82,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,60.46
+VRB37,2015,3,Jul-Sep,80.0,72.73,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,63.18
+VRB37,2015,4,Oct-Dec,100.0,72.73,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,68.18
+B10,2016,1,Jan-Mar,80.0,81.82,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,65.46
+B10,2016,2,Apr-Jun,100.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,72.73
+B10,2016,3,Jul-Sep,80.0,81.82,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,65.46
+B10,2016,4,Oct-Dec,80.0,81.82,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,65.46
+K19,2016,1,Jan-Mar,100.0,81.82,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,70.46
+K19,2016,2,Apr-Jun,80.0,81.82,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,65.46
+K19,2016,3,Jul-Sep,80.0,63.64,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,60.91
+K19,2016,4,Oct-Dec,60.0,63.64,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,55.91
+LS1,2016,1,Jan-Mar,80.0,63.64,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,35.91
+LS1,2016,2,Apr-Jun,60.0,54.55,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,28.64
+LS1,2016,3,Jul-Sep,80.0,54.55,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,33.64
+LS1,2016,4,Oct-Dec,80.0,81.82,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,40.46
+RV2,2016,1,Jan-Mar,100.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,70.46
+RV2,2016,2,Apr-Jun,100.0,72.73,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,68.18
+RV2,2016,3,Jul-Sep,100.0,72.73,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,68.18
+RV2,2016,4,Oct-Dec,100.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,70.46
+S2,2016,1,Jan-Mar,80.0,90.91,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,67.73
+S2,2016,2,Apr-Jun,100.0,90.91,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,97.73
+S2,2016,3,Jul-Sep,80.0,72.73,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,88.18
+S2,2016,4,Oct-Dec,80.0,81.82,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,65.46
+TW2,2016,1,Jan-Mar,60.0,63.64,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,30.91
+TW2,2016,2,Apr-Jun,80.0,81.82,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,40.46
+TW2,2016,3,Jul-Sep,80.0,81.82,100.0,0.0,Stream from Webb's Farm ,-26.799,27.908,65.46
+TW2,2016,4,Oct-Dec,80.0,81.82,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,40.46
+V17,2016,1,Jan-Mar,100.0,81.82,0.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,70.46
+V17,2016,2,Apr-Jun,100.0,72.73,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,93.18
+V17,2016,3,Jul-Sep,80.0,81.82,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,90.46
+V17,2016,4,Oct-Dec,100.0,72.73,0.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,68.18
+V2,2016,1,Jan-Mar,80.0,72.73,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,88.18
+V2,2016,2,Apr-Jun,80.0,81.82,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,90.46
+V2,2016,3,Jul-Sep,80.0,72.73,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,88.18
+V2,2016,4,Oct-Dec,80.0,72.73,100.0,100.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,88.18
+VRB20,2016,1,Jan-Mar,100.0,81.82,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,95.46
+VRB20,2016,2,Apr-Jun,100.0,81.82,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,95.46
+VRB20,2016,3,Jul-Sep,80.0,81.82,100.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,90.46
+VRB20,2016,4,Oct-Dec,100.0,72.73,0.0,100.0,Vaal River @ 20 km Beacon ,-26.751,27.810,68.18
+VRB37,2016,1,Jan-Mar,100.0,81.82,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,70.46
+VRB37,2016,2,Apr-Jun,80.0,81.82,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,65.46
+VRB37,2016,3,Jul-Sep,80.0,63.64,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,60.91
+VRB37,2016,4,Oct-Dec,100.0,72.73,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,68.18
+B10,2022,1,Jan-Mar,80.0,90.91,0.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,67.73
+B10,2022,2,Apr-Jun,100.0,90.91,100.0,100.0,Blesbokspruit Weir @ Heidelberg,-26.511,28.351,97.73
+K19,2022,1,Jan-Mar,80.0,81.82,0.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,65.46
+K19,2022,2,Apr-Jun,80.0,72.73,100.0,100.0,Klip River Weir @ Redan Train Bridge,-26.620,27.981,88.18
+LS1,2022,1,Jan-Mar,60.0,81.82,0.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,35.46
+LS1,2022,2,Apr-Jun,80.0,36.36,100.0,0.0,Leeuspruit @ Sasolburg ,-26.802,27.799,54.09
+RV2,2022,1,Jan-Mar,60.0,81.82,0.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,60.46
+RV2,2022,2,Apr-Jun,80.0,81.82,100.0,100.0,Rietspruit Weir @ Loch Vaal ,-26.729,27.718,90.46
+S2,2022,1,Jan-Mar,60.0,90.91,0.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,62.73
+S2,2022,2,Apr-Jun,60.0,90.91,100.0,100.0,Suikerbosrant River Weir @ Three Rivers,-26.671,28.031,87.73
+TW2,2022,1,Jan-Mar,80.0,81.82,0.0,0.0,Stream from Webb's Farm ,-26.799,27.908,40.46
+TW2,2022,2,Apr-Jun,80.0,81.82,100.0,0.0,Stream from Webb's Farm ,-26.799,27.908,65.46
+V17,2022,1,Jan-Mar,80.0,90.91,0.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,67.73
+V17,2022,2,Apr-Jun,80.0,72.73,100.0,100.0,Vaal River @ Barrage Outlet ,-26.763,27.683,88.18
+V2,2022,1,Jan-Mar,100.0,72.73,100.0,0.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,68.18
+V2,2022,2,Apr-Jun,80.0,72.73,100.0,0.0,Vaal River @ Engelbrecht's Drift Weir,-26.854,28.121,63.18
+VRB20,2022,1,Jan-Mar,80.0,81.82,0.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,40.46
+VRB20,2022,2,Apr-Jun,80.0,72.73,100.0,0.0,Vaal River @ 20 km Beacon ,-26.751,27.810,63.18
+VRB37,2022,1,Jan-Mar,80.0,90.91,0.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,67.73
+VRB37,2022,2,Apr-Jun,80.0,72.73,100.0,100.0,Vaal River @ 37 km Beacon ,-26.691,27.935,88.18

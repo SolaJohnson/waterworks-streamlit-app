@@ -10,7 +10,7 @@ from streamlit_option_menu import option_menu
 from PIL import Image
 import plotly.express as px
 import plotly.graph_objects as go
-
+import dash_map as dm
 
 def add_bg_from_local(image_file):
     with open(image_file, "rb") as image_file:
@@ -426,3 +426,8 @@ if selection == 'Time Series':
                     annotation=dict(font_size=20, font_family="Times New Roman"),
                     fillcolor="red", opacity=0.45, line_width=0)
         st.plotly_chart(fig)
+
+
+#Interactive map page
+if selection == 'Water Quality':
+    dm.main()

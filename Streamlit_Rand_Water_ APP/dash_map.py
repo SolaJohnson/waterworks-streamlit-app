@@ -6,8 +6,16 @@ import folium as fl
 from streamlit_folium import st_folium
 import pandas as pd
 import geopandas as gpd
-from branca.element import Template, MacroElement   
+from branca.element import Template, MacroElement  
 
+#References
+"""
+- Popup: https://towardsdatascience.com/folium-map-how-to-create-a-table-style-pop-up-with-html-code-76903706b88a
+- popup+: https://towardsdatascience.com/use-html-in-folium-maps-a-comprehensive-guide-for-data-scientists-3af10baf9190
+- Legend: https://nbviewer.org/gist/talbertc-usgs/18f8901fc98f109f2b71156cf3ac81cd
+
+- Icons: https://getbootstrap.com/docs/3.3/components/#glyphicons-glyphs
+"""
 
 
 #Legend template

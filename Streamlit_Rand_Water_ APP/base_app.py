@@ -12,6 +12,65 @@ import plotly.express as px
 import plotly.graph_objects as go
 import dash_map as dm
 
+#Create plot
+def create_plot(df, area, x, y, y_lim, g0, g1, b0, b1, y0, y1, r0, r1):
+    """
+        The function creates a plot of the selected parameter and catchment area using the following arguments
+        
+        Inputs:
+        df - dataframe
+        area - Selected catchment area
+        x - x_axis
+        y - y_axis
+        y_lim - upper limit of the y_axis
+        g0 - lower y value of acceptable rectangle
+        g1 - upper y value of acceptable rectangle
+        b0 - lower y value of ideal rectangle
+        b1 - upper y value of ideal rectangle
+        y0 - lower y value of tolerable rectangle
+        y1 - upper y value of tolerable rectangle
+        r0 - lower y value of unacceptable rectangle
+        r1 - upper y value of unacceptable rectangle
+    
+    """
+    fig = go.Figure() 
+    #Line chart
+    fig.add_trace(go.Scatter(x=df[x], y=df[y], mode='lines',
+            line=dict(color='black', width=3),
+            connectgaps=True))
+    #update axis
+    fig.update_layout(
+        xaxis=dict(
+            showline=True,
+            showgrid=False,
+            showticklabels=True,
+            tickangle=330),
+        yaxis=dict(
+            showgrid=False,
+            zeroline=True,
+            showline=True,
+            showticklabels=True,
+            title= f'{param} ',
+            range=[0, y_lim]) )
+    # Add shapes
+    fig.add_hrect(y0=g0, y1=g1, 
+                annotation_text="Acceptable", annotation_position="right",
+                annotation=dict(font_size=20, font_family="Times New Roman"),
+                fillcolor="green", opacity=0.3, line_width=0)
+    fig.add_hrect(y0=b0, y1=b1, 
+                annotation_text="Ideal", annotation_position="right",
+                annotation=dict(font_size=20, font_family="Times New Roman"),
+                fillcolor="blue", opacity=0.3, line_width=0)
+    fig.add_hrect(y0=y0, y1=y1, 
+                annotation_text="Tolerable", annotation_position="right",
+                annotation=dict(font_size=20, font_family="Times New Roman"),
+                fillcolor="yellow", opacity=0.3, line_width=0)
+    fig.add_hrect(y0=r0, y1=r1, 
+                annotation_text="Unacceptable", annotation_position="right",
+                annotation=dict(font_size=20, font_family="Times New Roman"),
+                fillcolor="red", opacity=0.3, line_width=0)
+    st.plotly_chart(fig)
+
 def add_bg_from_local(image_file):
     with open(image_file, "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read())
@@ -84,129 +143,116 @@ if selection == 'Time Series':
     data2['date'] = data2['quarter'] + " " + data2['year'].astype(str)
     data3['date'] = data3['quarter'] + " " + data3['year'].astype(str)
 
-
     #create sidebar options for parameters
-    parameters = ['COD', 'Conductivity','E.coli','Nitrate NO3 as N','pH','Phosphate PO4 as P']
+    parameters = ['COD', 'Conductivity','E.coli','Nitrate NO3 as N','pH','Phosphate PO4 as P', 'Overall Compliance']
     param = st.sidebar.selectbox("Choose Parameter", parameters)   
 
-    if param == 'COD':
+    if param == 'Overall Compliance':
+
+        #create date slider
+        year = [f'{i}' for i in range(2011, 2023) ]
+        start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
 
         #create options for catchment area
         options = data['Sample_pt_desc'].unique().tolist()
         area = st.sidebar.selectbox("Choose Catchment area", options)
+        
+        df = pd.read_csv(r'data/vaal_overall_final.csv')
+        df = df.sort_values(by=['year', 'qtr'], ascending=[True, True])
+        df['date'] = df['quarter'] + " " + df['year'].astype(str)
+       
+        #filter by catchment area
+        df = df.loc[df['Sample_pt_desc'] == area]
+       
+        #filter by year
+        df = df.loc[(df['year'].astype(str) >= start) & (df['year'].astype(str) <= stop)]
+        
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(x=df['date'], y=df['physical_compliance_%'],
+                    mode='lines', line=dict(color='black', width=3),
+                    name='physical'))
+        fig.add_trace(go.Scatter(x=df['date'], y=df['chemical_compliance_%'],
+                    mode='lines', line=dict(color='yellow', width=3),
+                    name='chemical'))
+        fig.add_trace(go.Scatter(x=df['date'], y=df['overall_compliance_%'],
+                    mode='lines', line=dict(color='green', width=3),
+                    name='overall'))
+        
+        fig.update_layout(
+        xaxis=dict(
+            showline=True,
+            showgrid=False,
+            showticklabels=True,
+            tickangle=330),
+        yaxis=dict(
+            showgrid=False,
+            zeroline=True,
+            showline=True,
+            showticklabels=True,
+            title= 'Overall Compliance'),
+            
+            plot_bgcolor="#D3E2F7" )
+              
+
+        st.plotly_chart(fig)
+   
+
+
+    if param == 'COD':
+
+        #create date slider
+        year = [f'{i}' for i in range(2011, 2023) ]
+        start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
+
+        #create options for catchment area
+        options = data['Sample_pt_desc'].unique().tolist()
+        area = st.sidebar.selectbox("Choose Catchment area", options)
+
+        #Filter data by catchment area
         data = data.loc[data['Sample_pt_desc'] == area]
 
+        #Filter data by year
+        data = data.loc[(data['year'].astype(str) >= start) & (data['year'].astype(str) <= stop)]
+
         #Create plot
-        fig = go.Figure() 
-
-        #Line chart
-        fig.add_trace(go.Scatter(x=data['date'], y=data['cod'], mode='lines',
-                line=dict(color='black', width=3),
-                connectgaps=True))
-
-        #update axis
-        fig.update_layout(
-            xaxis=dict(
-                showline=True,
-                showgrid=False,
-                showticklabels=True,
-                range=[0, 45],
-                tickangle=330),
-            
-            yaxis=dict(
-                showgrid=False,
-                zeroline=True,
-                showline=True,
-                showticklabels=True,
-                title=f'{param} mg/l',  
-                range=[0, 60]) )
-
-                    
-        # Add shapes
-        fig.add_hrect(y0=20, y1=35, 
-                    annotation_text="Acceptable", annotation_position="right",
-                    annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="green", opacity=0.25, line_width=0)
-
-        fig.add_hrect(y0=0, y1=19, 
-                    annotation_text="Ideal", annotation_position="right",
-                    annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="blue", opacity=0.25, line_width=0)
-
-        fig.add_hrect(y0=35, y1=55, 
-                    annotation_text="Tolerable", annotation_position="right",
-                    annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="yellow", opacity=0.35, line_width=0)
-
-        fig.add_hrect(y0=55, y1=60, 
-                    annotation_text="Unacceptable", annotation_position="right",
-                    annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="red", opacity=0.45, line_width=0)
-        st.plotly_chart(fig)
+        create_plot(df = data, area=area, x='date', y = 'cod', y_lim = 60, g0 = 20, g1=35, b0=0, b1=19, y0=35, y1=55, r0=55, r1=60)
 
 
     if param == 'Conductivity':
 
+        #create date slider
+        year = [f'{i}' for i in range(2011, 2023) ]
+        start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
+
         #catchment area options
         options = data['Sample_pt_desc'].unique().tolist()
         area = st.sidebar.selectbox("Choose Catchment area", options)
+
+        #filter by catchment area
         data = data.loc[data['Sample_pt_desc'] == area]
 
+        #Filter data by year
+        data = data.loc[(data['year'].astype(str) >= start) & (data['year'].astype(str) <= stop)]
+
         #Create plot
-        fig = go.Figure() 
-
-        #Line chart
-        fig.add_trace(go.Scatter(x=data['date'], y=data['conductivity'], mode='lines',
-                line=dict(color='black', width=3),
-                connectgaps=True))
-
-        #update axis
-        fig.update_layout(
-            xaxis=dict(
-                showline=True,
-                showgrid=False,
-                showticklabels=True,
-                range=[0, 45],
-                tickangle=330),
-            
-            yaxis=dict(
-                showgrid=False,
-                zeroline=True,
-                showline=True,
-                showticklabels=True,
-                title= f'{param} (mS/m)',
-                range=[0, 140]) )
-
-                    
-        # Add shapes
-        fig.add_hrect(y0=18, y1=30, 
-                    annotation_text="Acceptable", annotation_position="right",
-                    annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="green", opacity=0.25, line_width=0)
-
-        fig.add_hrect(y0=0, y1=18, 
-                    annotation_text="Ideal", annotation_position="right",
-                    annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="blue", opacity=0.25, line_width=0)
-
-        fig.add_hrect(y0=30, y1=70, 
-                    annotation_text="Tolerable", annotation_position="right",
-                    annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="yellow", opacity=0.35, line_width=0)
-
-        fig.add_hrect(y0=70, y1=140, 
-                    annotation_text="Unacceptable", annotation_position="right",
-                    annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="red", opacity=0.45, line_width=0)
-        st.plotly_chart(fig)
+        create_plot(df = data, area=area, x='date', y = 'conductivity', y_lim = 140, g0 = 18, g1=30, b0=0, b1=18, y0=30, y1=70, r0=70, r1=140)
 
     
     if param == 'pH':
 
+        #create date slider
+        year = [f'{i}' for i in range(2011, 2023) ]
+        start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
+
         #options for catchment area
         options = data['Sample_pt_desc'].unique().tolist()
         area = st.sidebar.selectbox("Choose Catchment area", options)
+
+        #filter by catchment area
         data = data.loc[data['Sample_pt_desc'] == area]
+
+        #Filter data by year
+        data = data.loc[(data['year'].astype(str) >= start) & (data['year'].astype(str) <= stop)]
 
         #Create plot
         fig = go.Figure() 
@@ -222,7 +268,6 @@ if selection == 'Time Series':
                 showline=True,
                 showgrid=False,
                 showticklabels=True,
-                range=[0, 45],
                 tickangle=330),
             
             yaxis=dict(
@@ -238,172 +283,143 @@ if selection == 'Time Series':
         fig.add_hrect(y0=6.5, y1=7, 
                     annotation_text="Acceptable", annotation_position="right",
                     annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="green", opacity=0.25, line_width=0)
+                    fillcolor="green", opacity=0.3, line_width=0)
         
         fig.add_hrect(y0=8.4, y1=8.5,
-                    fillcolor="green", opacity=0.25, line_width=0)
+                    fillcolor="green", opacity=0.3, line_width=0)
 
         fig.add_hrect(y0=7, y1=8.4, 
                     annotation_text="Ideal", annotation_position="right",
                     annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="blue", opacity=0.25, line_width=0)
+                    fillcolor="blue", opacity=0.3, line_width=0)
 
         fig.add_hrect(y0=6, y1=6.5, 
                     annotation_text="Tolerable", annotation_position="right",
                     annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="yellow", opacity=0.35, line_width=0)
+                    fillcolor="yellow", opacity=0.3, line_width=0)
         
         fig.add_hrect(y0=8.5, y1=9, 
                     annotation_text="Tolerable", annotation_position="right",
                     annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="yellow", opacity=0.35, line_width=0)
+                    fillcolor="yellow", opacity=0.3, line_width=0)
 
         fig.add_hrect(y0=0, y1=6, 
                     annotation_text="Unacceptable", annotation_position="right",
                     annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="red", opacity=0.25, line_width=0)
+                    fillcolor="red", opacity=0.3, line_width=0)
         fig.add_hrect(y0=9, y1=11, 
                     annotation_text="Unacceptable", annotation_position="right",
                     annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="red", opacity=0.45, line_width=0)
+                    fillcolor="red", opacity=0.3, line_width=0)
         st.plotly_chart(fig)
 
     
     if param == 'E.coli':
 
+        #create date slider
+        year = [f'{i}' for i in range(2011, 2023) ]
+        start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
+
         #Catchment area options
         options = data2['Sample_pt_desc'].unique().tolist()
         area = st.sidebar.selectbox("Choose Catchment area", options)
+
+        #filter by catchment area
         data2 = data2.loc[data2['Sample_pt_desc'] == area]
+
+        #Filter data by year
+        data2 = data2.loc[(data2['year'].astype(str) >= start) & (data2['year'].astype(str) <= stop)]
 
         #Create plot
         fig = go.Figure() 
-
         #Line chart
         fig.add_trace(go.Scatter(x=data2['date'], y=data2['e.coli'], mode='lines',
                 line=dict(color='black', width=3),
                 connectgaps=True))
-
         #update axis
         fig.update_layout(
             xaxis=dict(
                 showline=True,
                 showgrid=False,
                 showticklabels=True,
-                range=[0, 45],
                 tickangle=330),
-            
-            yaxis=dict(
-                showgrid=False,
-                zeroline=True,
-                showline=True,
-                showticklabels=True,
-                title= f'{param} (counts/100ml)',
-                range=[0, 1000]) )
-
-                    
-        # Add shapes
-        fig.add_hrect(y0=130, y1=200, 
-                    annotation_text="Acceptable", annotation_position="right",
-                    annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="green", opacity=0.25, line_width=0)
-
-        fig.add_hrect(y0=0, y1=130, 
-                    annotation_text="Ideal", annotation_position="right",
-                    annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="blue", opacity=0.25, line_width=0)
-
-        fig.add_hrect(y0=200, y1=400, 
-                    annotation_text="Tolerable", annotation_position="right",
-                    annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="yellow", opacity=0.35, line_width=0)
-
-        fig.add_hrect(y0=400, y1=1000, 
-                    annotation_text="Unacceptable", annotation_position="right",
-                    annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="red", opacity=0.45, line_width=0)
-        st.plotly_chart(fig)
-        
-
-    if param == 'Nitrate NO3 as N':
-
-        #options for catchment area
-        options = data3['Sample_pt_desc'].unique().tolist()
-        area = st.sidebar.selectbox("Choose Catchment area", options)
-        data3 = data3.loc[data3['Sample_pt_desc'] == area]
-
-        #Create plot
-        fig = go.Figure() 
-
-        #Line chart
-        fig.add_trace(go.Scatter(x=data3['date'], y=data3['nitrate'], mode='lines',
-                line=dict(color='black', width=3),
-                connectgaps=True))
-
-        #update axis
-        fig.update_layout(
-            xaxis=dict(
-                showline=True,
-                showgrid=False,
-                showticklabels=True,
-                range=[0, 45],
-                tickangle=330),
-            
             yaxis=dict(
                 showgrid=False,
                 zeroline=True,
                 showline=True,
                 showticklabels=True,
                 title= f'{param} (mg/l)',
-                range=[0, 8]) )
-
-                    
+                type='log',
+                range=[2, 5]) )
         # Add shapes
-        fig.add_hrect(y0=0.5, y1=3, 
+        fig.add_hrect(y0=130, y1=200, 
                     annotation_text="Acceptable", annotation_position="right",
                     annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="green", opacity=0.25, line_width=0)
-
-        fig.add_hrect(y0=0, y1=0.5, 
+                    fillcolor="green", opacity=0.3, line_width=0)
+        fig.add_hrect(y0=0, y1=130, 
                     annotation_text="Ideal", annotation_position="right",
                     annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="blue", opacity=0.25, line_width=0)
-
-        fig.add_hrect(y0=3, y1=6, 
+                    fillcolor="blue", opacity=0.3, line_width=0)
+        fig.add_hrect(y0=200, y1=400, 
                     annotation_text="Tolerable", annotation_position="right",
                     annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="yellow", opacity=0.35, line_width=0)
-
-        fig.add_hrect(y0=6, y1=8, 
+                    fillcolor="yellow", opacity=0.3, line_width=0)
+        fig.add_hrect(y0=400, y1=100000, 
                     annotation_text="Unacceptable", annotation_position="right",
                     annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="red", opacity=0.45, line_width=0)
+                    fillcolor="red", opacity=0.3, line_width=0)
+        
         st.plotly_chart(fig)
+
+    if param == 'Nitrate NO3 as N':
+
+        #create date slider
+        year = [f'{i}' for i in range(2011, 2023) ]
+        start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
+
+        #options for catchment area
+        options = data3['Sample_pt_desc'].unique().tolist()
+        area = st.sidebar.selectbox("Choose Catchment area", options)
+
+        #filter by catchment area
+        data3 = data3.loc[data3['Sample_pt_desc'] == area]
+
+        #Filter data by year
+        data3 = data3.loc[(data3['year'].astype(str) >= start) & (data3['year'].astype(str) <= stop)]
+
+        #create plot
+        create_plot(df = data3, area=area, x='date', y = 'nitrate', y_lim = 8, g0 = 0.5, g1=3, b0=0, b1=0.5, y0=3, y1=6, r0=6, r1=8)
+       
         
     if param == 'Phosphate PO4 as P':
+
+        #create date slider
+        year = [f'{i}' for i in range(2011, 2023) ]
+        start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
 
         #Catchment area options
         options = data3['Sample_pt_desc'].unique().tolist()
         area = st.sidebar.selectbox("Choose Catchment area", options)
+
+        #filter by catchment area
         data3 = data3.loc[data3['Sample_pt_desc'] == area]
+
+        #Filter data by year
+        data3 = data3.loc[(data3['year'].astype(str) >= start) & (data3['year'].astype(str) <= stop)]
 
         #Create plot
         fig = go.Figure() 
-
-        #Line chart
+        
         fig.add_trace(go.Scatter(x=data3['date'], y=data3['phosphate'], mode='lines',
                 line=dict(color='black', width=3),
                 connectgaps=True))
-
         #update axis
         fig.update_layout(
             xaxis=dict(
                 showline=True,
                 showgrid=False,
                 showticklabels=True,
-                range=[0, 45],
                 tickangle=330),
-            
             yaxis=dict(
                 showgrid=False,
                 zeroline=True,
@@ -411,22 +427,20 @@ if selection == 'Time Series':
                 showticklabels=True,
                 title= f'{param} (mg/l)',
                 range=[0, 3]) )
-
-                    
+        
         # Add shapes
-        fig.add_hrect(y0=0, y1=0.03,
-                    fillcolor="green", opacity=0.25, line_width=0)
-
-
+        fig.add_hrect(y0=0, y1=0.03, 
+                    fillcolor="green", opacity=0.3, line_width=0)
+        fig.add_hrect(y0=0, y1=0, 
+                    fillcolor="blue", opacity=0.3, line_width=0)
         fig.add_hrect(y0=0.03, y1=0.05, 
-                    fillcolor="yellow", opacity=0.35, line_width=0)
+                    fillcolor="yellow", opacity=0.3, line_width=0)
 
         fig.add_hrect(y0=0.05, y1=3, 
                     annotation_text="Unacceptable", annotation_position="right",
                     annotation=dict(font_size=20, font_family="Times New Roman"),
-                    fillcolor="red", opacity=0.45, line_width=0)
+                    fillcolor="red",opacity=0.3, line_width=0)
         st.plotly_chart(fig)
-
 
 #Interactive map page
 if selection == 'Water Quality':

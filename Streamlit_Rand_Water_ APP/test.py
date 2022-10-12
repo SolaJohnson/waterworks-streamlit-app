@@ -8,7 +8,7 @@ from PIL import Image
 import plotly.express as px
 import plotly.graph_objects as go
 
- #Create plot
+#Create plot
 def create_plot(df, area, x, y, y_lim, g0, g1, b0, b1, y0, y1, r0, r1):
     """
         The function creates a plot of the selected parameter and catchment area using the following arguments

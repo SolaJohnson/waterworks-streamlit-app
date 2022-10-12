@@ -189,9 +189,9 @@ def compliance_color(row):
 def display_time_filters(df):
 		year_list = list(df['year'].unique())
 		year_list.sort()
-		year = st.sidebar.selectbox('year', year_list, len(year_list)-1)
-		quarter = st.sidebar.radio('quarter', ['Jan-Mar', 'Apr-Jun', 'Jul-Sep', 'Oct-Dec'])
-		st.header(f'{year} Q{quarter}')
+		year = st.sidebar.selectbox('Year', year_list, len(year_list)-1)
+		quarter = st.sidebar.radio('Quarter', ['Jan-Mar', 'Apr-Jun', 'Jul-Sep', 'Oct-Dec'])
+		st.header(f'{year} {quarter}')
 		return year, quarter
 
 def display_site_filter(df, site_name):

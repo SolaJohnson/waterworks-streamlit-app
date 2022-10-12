@@ -44,7 +44,6 @@ def create_plot(df, area, x, y, y_lim, g0, g1, b0, b1, y0, y1, r0, r1):
             showline=True,
             showgrid=False,
             showticklabels=True,
-            range=[0, 45],
             tickangle=330),
         yaxis=dict(
             showgrid=False,
@@ -151,8 +150,8 @@ if selection == 'Time Series':
     if param == 'Overall Compliance':
 
         #create date slider
-        #year = [f'{i}' for i in range(2011, 2023) ]
-        #start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
+        year = [f'{i}' for i in range(2011, 2023) ]
+        start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
 
         #create options for catchment area
         options = data['Sample_pt_desc'].unique().tolist()
@@ -161,14 +160,38 @@ if selection == 'Time Series':
         df = pd.read_csv(r'data/vaal_overall_final.csv')
         df = df.sort_values(by=['year', 'qtr'], ascending=[True, True])
         df['date'] = df['quarter'] + " " + df['year'].astype(str)
+       
+        #filter by catchment area
         df = df.loc[df['Sample_pt_desc'] == area]
        
-        #df = df.loc[(df['year'].astype(str) >= start) & (df['year'].astype(str) < stop)]
-        st.dataframe(df)
+        #filter by year
+        df = df.loc[(df['year'].astype(str) >= start) & (df['year'].astype(str) <= stop)]
         
-        fig = px.line(df, x='date', y='physical_compliance_%')
-
-        #Physical compliance Line chart chemical_compliance_% bacteriological_compliance_% overall_compliance_%
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(x=df['date'], y=df['physical_compliance_%'],
+                    mode='lines', line=dict(color='black', width=3),
+                    name='physical'))
+        fig.add_trace(go.Scatter(x=df['date'], y=df['chemical_compliance_%'],
+                    mode='lines', line=dict(color='yellow', width=3),
+                    name='chemical'))
+        fig.add_trace(go.Scatter(x=df['date'], y=df['overall_compliance_%'],
+                    mode='lines', line=dict(color='green', width=3),
+                    name='overall'))
+        
+        fig.update_layout(
+        xaxis=dict(
+            showline=True,
+            showgrid=False,
+            showticklabels=True,
+            tickangle=330),
+        yaxis=dict(
+            showgrid=False,
+            zeroline=True,
+            showline=True,
+            showticklabels=True,
+            title= 'Overall Compliance'),
+            
+            plot_bgcolor="#D3E2F7" )
               
 
         st.plotly_chart(fig)
@@ -177,10 +200,19 @@ if selection == 'Time Series':
 
     if param == 'COD':
 
+        #create date slider
+        year = [f'{i}' for i in range(2011, 2023) ]
+        start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
+
         #create options for catchment area
         options = data['Sample_pt_desc'].unique().tolist()
         area = st.sidebar.selectbox("Choose Catchment area", options)
+
+        #Filter data by catchment area
         data = data.loc[data['Sample_pt_desc'] == area]
+
+        #Filter data by year
+        data = data.loc[(data['year'].astype(str) >= start) & (data['year'].astype(str) <= stop)]
 
         #Create plot
         create_plot(df = data, area=area, x='date', y = 'cod', y_lim = 60, g0 = 20, g1=35, b0=0, b1=19, y0=35, y1=55, r0=55, r1=60)
@@ -188,10 +220,19 @@ if selection == 'Time Series':
 
     if param == 'Conductivity':
 
+        #create date slider
+        year = [f'{i}' for i in range(2011, 2023) ]
+        start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
+
         #catchment area options
         options = data['Sample_pt_desc'].unique().tolist()
         area = st.sidebar.selectbox("Choose Catchment area", options)
+
+        #filter by catchment area
         data = data.loc[data['Sample_pt_desc'] == area]
+
+        #Filter data by year
+        data = data.loc[(data['year'].astype(str) >= start) & (data['year'].astype(str) <= stop)]
 
         #Create plot
         create_plot(df = data, area=area, x='date', y = 'conductivity', y_lim = 140, g0 = 18, g1=30, b0=0, b1=18, y0=30, y1=70, r0=70, r1=140)
@@ -199,10 +240,19 @@ if selection == 'Time Series':
     
     if param == 'pH':
 
+        #create date slider
+        year = [f'{i}' for i in range(2011, 2023) ]
+        start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
+
         #options for catchment area
         options = data['Sample_pt_desc'].unique().tolist()
         area = st.sidebar.selectbox("Choose Catchment area", options)
+
+        #filter by catchment area
         data = data.loc[data['Sample_pt_desc'] == area]
+
+        #Filter data by year
+        data = data.loc[(data['year'].astype(str) >= start) & (data['year'].astype(str) <= stop)]
 
         #Create plot
         fig = go.Figure() 
@@ -218,7 +268,6 @@ if selection == 'Time Series':
                 showline=True,
                 showgrid=False,
                 showticklabels=True,
-                range=[0, 45],
                 tickangle=330),
             
             yaxis=dict(
@@ -267,10 +316,19 @@ if selection == 'Time Series':
     
     if param == 'E.coli':
 
+        #create date slider
+        year = [f'{i}' for i in range(2011, 2023) ]
+        start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
+
         #Catchment area options
         options = data2['Sample_pt_desc'].unique().tolist()
         area = st.sidebar.selectbox("Choose Catchment area", options)
+
+        #filter by catchment area
         data2 = data2.loc[data2['Sample_pt_desc'] == area]
+
+        #Filter data by year
+        data2 = data2.loc[(data2['year'].astype(str) >= start) & (data2['year'].astype(str) <= stop)]
 
         #Create plot
         fig = go.Figure() 
@@ -284,7 +342,6 @@ if selection == 'Time Series':
                 showline=True,
                 showgrid=False,
                 showticklabels=True,
-                range=[0, 45],
                 tickangle=330),
             yaxis=dict(
                 showgrid=False,
@@ -316,19 +373,39 @@ if selection == 'Time Series':
 
     if param == 'Nitrate NO3 as N':
 
+        #create date slider
+        year = [f'{i}' for i in range(2011, 2023) ]
+        start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
+
         #options for catchment area
         options = data3['Sample_pt_desc'].unique().tolist()
         area = st.sidebar.selectbox("Choose Catchment area", options)
+
+        #filter by catchment area
         data3 = data3.loc[data3['Sample_pt_desc'] == area]
+
+        #Filter data by year
+        data3 = data3.loc[(data3['year'].astype(str) >= start) & (data3['year'].astype(str) <= stop)]
+
+        #create plot
         create_plot(df = data3, area=area, x='date', y = 'nitrate', y_lim = 8, g0 = 0.5, g1=3, b0=0, b1=0.5, y0=3, y1=6, r0=6, r1=8)
        
         
     if param == 'Phosphate PO4 as P':
 
+        #create date slider
+        year = [f'{i}' for i in range(2011, 2023) ]
+        start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
+
         #Catchment area options
         options = data3['Sample_pt_desc'].unique().tolist()
         area = st.sidebar.selectbox("Choose Catchment area", options)
+
+        #filter by catchment area
         data3 = data3.loc[data3['Sample_pt_desc'] == area]
+
+        #Filter data by year
+        data3 = data3.loc[(data3['year'].astype(str) >= start) & (data3['year'].astype(str) <= stop)]
 
         #Create plot
         fig = go.Figure() 
@@ -342,7 +419,6 @@ if selection == 'Time Series':
                 showline=True,
                 showgrid=False,
                 showticklabels=True,
-                range=[0, 45],
                 tickangle=330),
             yaxis=dict(
                 showgrid=False,

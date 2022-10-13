@@ -9,7 +9,6 @@ streamlit_folium
 geopandas
 pyodbc
 datetime
-dataclases
 base64
 PIL
 prophet

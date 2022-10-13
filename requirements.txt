@@ -7,7 +7,6 @@ plotly
 folium
 streamlit_folium
 geopandas
-branca
 os
 pyodbc
 functools

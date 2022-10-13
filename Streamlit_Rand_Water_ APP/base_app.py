@@ -11,6 +11,7 @@ from PIL import Image
 import plotly.express as px
 import plotly.graph_objects as go
 import dash_map as dm
+from prophet import Prophet
 
 #Create plot
 def create_plot(df, area, x, y, y_lim, g0, g1, b0, b1, y0, y1, r0, r1):
@@ -69,6 +70,126 @@ def create_plot(df, area, x, y, y_lim, g0, g1, b0, b1, y0, y1, r0, r1):
                 annotation_text="Unacceptable", annotation_position="right",
                 annotation=dict(font_size=20, font_family="Times New Roman"),
                 fillcolor="red", opacity=0.3, line_width=0)
+    st.plotly_chart(fig)
+
+
+def make_forecast(df, y ):
+    df.reset_index(inplace=True)
+
+    #Prepare data for forecast
+    df['day-month'] = ''
+    for i, qtr in enumerate(df.qtr):
+        if qtr == 1:
+            df['day-month'][i] = '31-03'
+        elif qtr == 2:
+            df['day-month'][i] = '30-06'
+        elif qtr == 3:
+            df['day-month'][i] = '30-09'
+        else:
+            df['day-month'][i] = '31-12'
+        
+    df['date'] = df['day-month'].astype(str) + ' ' + df['year'].astype(str)
+    df['date'] = pd.to_datetime(df['date'])
+
+    # define the period for which we want a prediction
+    future = pd.date_range('2022-06-30', periods=10, freq='Q').tolist()
+    future = pd.DataFrame(future)
+    future.columns = ['ds']
+    future['ds']= pd.to_datetime(future['ds'])
+
+    
+    # prepare expected column names
+    data = pd.DataFrame(columns=['ds', 'y'])
+    data['ds'] = df['date']
+    data['y'] = df[y]
+    data['ds']= pd.to_datetime(data['ds'])
+
+    # define the model
+    model = Prophet()
+
+    # fit the model
+    model.fit(data)
+
+    # use the model to make a forecast
+    forecast = model.predict(future)   
+
+    #plot forecast
+    fig = go.Figure()
+    
+    fig.add_trace(go.Scatter(
+    x = forecast['ds'],
+    y = forecast['yhat'],
+    mode = 'lines',
+    marker = {
+        'color': '#3bbed7'
+    },
+    line = {
+        'width': 1.5
+    },
+    name = 'Forecast',
+    ))
+
+    fig.add_trace(go.Scatter(
+    x = forecast['ds'],
+    y = forecast['yhat_lower'],
+    marker = {
+        'color': 'rgba(0,0,0,0)'
+    },
+    showlegend = False,
+    hoverinfo = 'none',
+    name = 'yhat_lower' ,
+    ))
+
+    fig.add_trace(go.Scatter(
+    x = forecast['ds'],
+    y = forecast['yhat_upper'],
+    fill='tonexty',
+    fillcolor = 'rgba(26,150,65,0.1)',
+    name = 'Confidence',
+    mode = 'none'
+    ))
+
+    fig.add_trace(go.Scatter(
+    x = data['ds'],
+    y = data['y'],
+    mode = 'lines',
+    line=dict(color='blue', width=2),
+    connectgaps=True,
+    name = 'Actual'
+    ))
+
+    fig.update_layout(
+        xaxis=dict(
+            showline=True,
+            showgrid=False,
+            showticklabels=True,
+            linecolor='black',
+            linewidth=0.7,
+            ticks='outside',
+            tickfont=dict(
+                family='Arial',
+                size=12,
+                color='black',
+                        ),
+        ),
+        yaxis=dict(
+            showline=True,
+            showgrid=False,
+            showticklabels=True,
+            title=para,
+            linecolor='black',
+            linewidth=0.7,
+            ticks='outside',
+            tickfont=dict(
+                family='Arial',
+                size=12,
+                color='black',
+            )
+        ),
+        
+        showlegend = True,
+    plot_bgcolor='#D3E2F7'
+    ) 
     st.plotly_chart(fig)
 
 def add_bg_from_local(image_file):
@@ -149,6 +270,8 @@ if selection == 'Time Series':
 
     if param == 'Overall Compliance':
 
+        para = st.sidebar.radio('', ['Physical', 'Chemical', 'Overall']) 
+
         #create date slider
         year = [f'{i}' for i in range(2011, 2023) ]
         start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
@@ -167,36 +290,18 @@ if selection == 'Time Series':
         #filter by year
         df = df.loc[(df['year'].astype(str) >= start) & (df['year'].astype(str) <= stop)]
         
-        fig = go.Figure()
-        fig.add_trace(go.Scatter(x=df['date'], y=df['physical_compliance_%'],
-                    mode='lines', line=dict(color='black', width=3),
-                    name='physical'))
-        fig.add_trace(go.Scatter(x=df['date'], y=df['chemical_compliance_%'],
-                    mode='lines', line=dict(color='yellow', width=3),
-                    name='chemical'))
-        fig.add_trace(go.Scatter(x=df['date'], y=df['overall_compliance_%'],
-                    mode='lines', line=dict(color='green', width=3),
-                    name='overall'))
         
-        fig.update_layout(
-        xaxis=dict(
-            showline=True,
-            showgrid=False,
-            showticklabels=True,
-            tickangle=330),
-        yaxis=dict(
-            showgrid=False,
-            zeroline=True,
-            showline=True,
-            showticklabels=True,
-            title= 'Overall Compliance'),
+        if para == 'Physical':
+
+            make_forecast(df, 'physical_compliance_%')
+
+        if para == 'Chemical':
+
+            make_forecast(df, 'chemical_compliance_%')
+
+        if para == 'Overall':
             
-            plot_bgcolor="#D3E2F7" )
-              
-
-        st.plotly_chart(fig)
-   
-
+            make_forecast(df, 'overall_compliance_%')
 
     if param == 'COD':
 

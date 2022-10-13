@@ -125,45 +125,21 @@ def popup_html(df):
 		institution_img = 'https://financialtribune.com/sites/default/files/field/image/17january/05_wastewater_300_0.jpg'
 		institution_url = 'https://www.dws.gov.za/'
 
-		left_col_color = "#19a7bd"
+		left_col_color = "#7CC4F5"
 		right_col_color = "#f2f0d3"
 
 
 		
 		html = """<!DOCTYPE html>
 
-<center><img src=\"""" + institution_img + """\" alt="logo" width=100 height=100 ></center>
+<center><img src=\"""" + institution_img + """\" alt="logo" width=50 height=50 ></center>
 <center><h4 style="margin-bottom:5"; width="200px">{}</h4>""".format(site_description) + """</center>
 <center><a href=\"""" + institution_url + """\">Go to the Institution's Website</a></center>
-<center> <table style="height: 126px; width: 350px;">
+<center> <table style="height: 30px; width: 350px;">
 <tbody>
 <tr>
-<td style="background-color: """+ left_col_color +""";"><span style="color: #ffffff;">Year</span></td>
-<td style="width: 150px;background-color: """+ right_col_color +""";">{}</td>""".format(year) + """
-</tr>
-<tr>
-<td style="background-color: """+ left_col_color +""";"><span style="color: #ffffff;">Quarter</span></td>
-<td style="width: 150px;background-color: """+ right_col_color +""";">{}</td>""".format(quarter) + """
-</tr>
-<tr>
-<td style="background-color: """+ left_col_color +""";"><span style="color: #ffffff;">Sample ID</span></td>
+<td style="background-color: """+ left_col_color +""";"><span style="color: #000000;">Sample ID</span></td>
 <td style="width: 150px;background-color: """+ right_col_color +""";">{}</td>""".format(sample_id) + """
-</tr>
-<tr>
-<td style="background-color: """+ left_col_color +""";"><span style="color: #ffffff;">Physical compliance</span></td>
-<td style="width: 150px;background-color: """+ right_col_color +""";">{}%</td>""".format(physical) + """
-</tr>
-<tr>
-<td style="background-color: """+ left_col_color +""";"><span style="color: #ffffff;">Chemical compliance</span></td>
-<td style="width: 150px;background-color: """+ right_col_color +""";">{}%</td>""".format(chemical) + """
-</tr>
-<tr>
-<td style="background-color: """+ left_col_color +""";"><span style="color: #ffffff;">Bacteriological compliance</span></td>
-<td style="width: 150px;background-color: """+ right_col_color +""";">{}%</td>""".format(bacteorological) + """
-</tr>
-<tr>
-<td style="background-color: """+ left_col_color +""";"><span style="color: #ffffff;">Biological compliance</span></td>
-<td style="width: 150px;background-color: """+ right_col_color +""";">{}%""".format(biological) + """
 </tr>
 </tbody>
 </table>

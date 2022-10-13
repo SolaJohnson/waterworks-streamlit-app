@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'WaterInternApp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B2162815F7274B93BAF74959166BEEFC }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_89644BA11AC3453687EA5C1D38FE5AC5 }}

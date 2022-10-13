@@ -8,7 +8,6 @@ folium
 streamlit_folium
 geopandas
 pyodbc
-functools
 datetime
 dataclases
 base64

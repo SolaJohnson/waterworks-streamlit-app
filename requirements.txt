@@ -9,5 +9,4 @@ streamlit_folium
 geopandas
 pyodbc
 datetime
-PIL
 prophet

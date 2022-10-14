@@ -7,10 +7,6 @@ plotly
 folium
 streamlit_folium
 geopandas
-branca
-logging
-os
 pyodbc
-functools
 datetime
-dataclases
+prophet

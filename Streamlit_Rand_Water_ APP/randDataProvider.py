@@ -12,5 +12,4 @@ def get_data(query: str) -> pd.DataFrame:
     result = cursor.fetchall_arrow().to_pandas()
     #cursor.close()
     #connection.close()
-    df =pd.DataFrame(result)
     return result

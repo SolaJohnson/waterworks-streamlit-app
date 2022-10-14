@@ -1,5 +1,6 @@
 [server]
 port = 81
+runOnSave = true
 
 [theme]
 base="light"

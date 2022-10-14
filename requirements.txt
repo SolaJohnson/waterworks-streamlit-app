@@ -1,3 +1,5 @@
+databricks
+databricks-sql-connector
 streamlit
 matplotlib
 pandas

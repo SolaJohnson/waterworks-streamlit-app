@@ -1,3 +1,8 @@
+branca
+pybase64
+pillow
+databricks
+databricks-sql-connector
 streamlit
 matplotlib
 pandas

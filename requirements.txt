@@ -1,3 +1,6 @@
+audioop
+turtle
+seaborn
 branca
 pybase64
 pillow

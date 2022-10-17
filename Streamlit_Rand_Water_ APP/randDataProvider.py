@@ -10,7 +10,6 @@ def get_data(query: str) -> pd.DataFrame:
     cursor = connection.cursor()
     cursor.execute(query)
     result = cursor.fetchall_arrow().to_pandas()
-    cursor.close()
-    connection.close()
-    df =pd.DataFrame(result)
+    #cursor.close()
+    #connection.close()
     return result

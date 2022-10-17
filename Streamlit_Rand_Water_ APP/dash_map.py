@@ -184,7 +184,7 @@ def display_site_filter(df, site_name):
 def display_map(df, year, quarter,only1,only2,only3,only4,only5):
 		df = df[(df['year'] == year) & (df['quarter'] == quarter)]
 
-		vaal_map = fl.Map(location=[-26.799, 27.908], zoom_start=8, scrollWheelZoom=False, tiles='Stamen Terrain')
+		vaal_map = fl.Map(location=[-26.549, 28.064], zoom_start=9, scrollWheelZoom=False, tiles='Stamen Terrain')
 		
 		river = fl.FeatureGroup(name='River')
 		river.add_children(fl.GeoJson(data=only1["geometry"],name="Streams",style_function=lambda x:{'weight':1}))

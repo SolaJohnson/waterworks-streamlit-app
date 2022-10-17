@@ -207,7 +207,7 @@ def add_bg_from_local(image_file):
     """,
     unsafe_allow_html=True
     )
-add_bg_from_local('robert-anderson-aJ-UU_9F9ko-unsplash.jpg')  
+add_bg_from_local('background img.png')  
 
 # Design horizontal bar
 menu = ["Home", "Water Quality", "Time Series", "About us"]

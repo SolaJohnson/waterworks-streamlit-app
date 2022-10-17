@@ -1,7 +1,5 @@
 
 # # %%
-from audioop import avg
-from turtle import title
 import streamlit as st
 import pandas as pd
 import folium as fl
@@ -10,6 +8,7 @@ import pandas as pd
 import geopandas as gpd
 from branca.element import Template, MacroElement
 import pyproj
+import randDataProvider as RD
 
 # # %%
 # import pyproj
@@ -123,14 +122,8 @@ template = """
 
 #Popup
 def popup_html(df):
-		site_description=df['Sample_pt_desc'] 
+		site_description=df['sample_pt_desc'] 
 		sample_id=df['sample_id']
-		year = df['year']
-		quarter = df['quarter']
-		physical =df['physical_compliance_%']                    
-		chemical = df['chemical_compliance_%']
-		bacteorological = df['bacteriological_compliance_%']
-		biological = df['biological_compliance_%']
 		institution_img = 'https://financialtribune.com/sites/default/files/field/image/17january/05_wastewater_300_0.jpg'
 		institution_url = 'https://www.dws.gov.za/'
 
@@ -161,13 +154,13 @@ def popup_html(df):
 
 #Compliance color chooser
 def compliance_color(row):
-	if row['overall_compliance_%'] < 50:
+	if row['overall_compliance_percentage'] < 50:
 		return 'red'
-	elif row['overall_compliance_%'] < 70:
+	elif row['overall_compliance_percentage'] < 70:
 		return 'yellow'
-	elif row['overall_compliance_%'] < 90:
+	elif row['overall_compliance_percentage'] < 90:
 		return 'green'
-	elif row['overall_compliance_%'] > 89:
+	elif row['overall_compliance_percentage'] > 89:
 		return 'blue'
 	
 
@@ -180,7 +173,7 @@ def display_time_filters(df):
 		return year, quarter
 
 def display_site_filter(df, site_name):
-		site_list = [''] + list(df['Sample_pt_desc'].unique())
+		site_list = [''] + list(df['sample_pt_desc'].unique())
 		site_list.sort()
 		site_index = site_list.index(site_name) if site_name and site_name in site_list else 0
 		return st.sidebar.selectbox('Site', site_list, site_index)
@@ -191,7 +184,7 @@ def display_site_filter(df, site_name):
 def display_map(df, year, quarter,only1,only2,only3,only4,only5):
 		df = df[(df['year'] == year) & (df['quarter'] == quarter)]
 
-		vaal_map = fl.Map(location=[-26.799, 27.908], zoom_start=8, scrollWheelZoom=False, tiles='Stamen Terrain')
+		vaal_map = fl.Map(location=[-26.549, 28.064], zoom_start=9, scrollWheelZoom=False, tiles='Stamen Terrain')
 		
 		river = fl.FeatureGroup(name='River')
 		river.add_children(fl.GeoJson(data=only1["geometry"],name="Streams",style_function=lambda x:{'weight':1}))
@@ -207,7 +200,7 @@ def display_map(df, year, quarter,only1,only2,only3,only4,only5):
 				vaal.add_children(fl.Marker(
 				location=[site['latitude'], site['longitude']],
 				popup = fl.Popup(fl.Html(popup_html(site), script=True), max_width=500),
-				tooltip = site['Sample_pt_desc'],
+				tooltip = site['sample_pt_desc'],
 								icon = fl.Icon(color = compliance_color(site), icon='glyphicon glyphicon-tint',)
 		))
 		vaal_map.add_children(vaal)
@@ -224,14 +217,14 @@ def display_map(df, year, quarter,only1,only2,only3,only4,only5):
 		site_name = ''
 		if st_map['last_active_drawing']:
 				coordinates = st_map['last_active_drawing']['geometry']['coordinates']
-				site_name = df['Sample_pt_desc'][(df['latitude']==coordinates[1]) & (df['longitude']==coordinates[0])].item()
+				site_name = df['sample_pt_desc'][(df['latitude']==coordinates[1]) & (df['longitude']==coordinates[0])].item()
 				
 		return site_name
 
 def display_compliance(df, year, quarter, site_name, column, string_format='${:,}', is_median=False):
 		df = df[(df['year'] == year) & (df['quarter'] == quarter)]
 		if site_name:
-				df = df[df['Sample_pt_desc'] == site_name]
+				df = df[df['sample_pt_desc'] == site_name]
 		df.drop_duplicates(inplace=True)
 		
 		st.metric(column[1],f"{round(df[column[0]].mean(),2)}%")
@@ -241,12 +234,21 @@ def display_compliance(df, year, quarter, site_name, column, string_format='${:,
 def main():
 
 		#Load Data
-		vaal_df = pd.read_csv('data/vaal_overall_final.csv')
+		rand = RD.get_data("SELECT * FROM rand")
+		rivers = RD.get_data("SELECT * FROM rivers")
+		sp = RD.get_data("SELECT * FROM sampling_points")
 		only1 = gpd.read_file('data/river/only1.shp')
 		only2 = gpd.read_file('data/river/only2.shp')
 		only3 = gpd.read_file('data/river/only3.shp')
 		only4 = gpd.read_file('data/river/only4.shp')
 		only5 = gpd.read_file('data/river/only5.shp')
+
+		#Merge data
+		columns = ['sample_id','year','quarter','physical_compliance_percentage','chemical_compliance_percentage','bacteriological_compliance_percentage','biological_compliance_percentage','sample_pt_desc','latitude','longitude','overall_compliance_percentage']
+		vaal_df = pd.merge(rand, sp, on='sample_id')
+		vaal_df = pd.merge(vaal_df, rivers, on='river_id')
+		vaal_df =  vaal_df[columns]
+
 
 		#Display Filters and Map
 		year, quarter = display_time_filters(vaal_df)
@@ -258,11 +260,11 @@ def main():
 		st.subheader(f'{site_name} Compliance')
 		# st.subheader(f'{site_name} {site_type} Facts')
 		#col titles
-		phys = ['physical_compliance_%', 'Physical']
-		chem = ['chemical_compliance_%', 'Chemical']
-		bact = ['bacteriological_compliance_%', 'Bacteriological']
-		bio = ['biological_compliance_%', 'Biological']
-		overall = ['overall_compliance_%', 'Overall']
+		phys = ['physical_compliance_percentage', 'Physical']
+		chem = ['chemical_compliance_percentage', 'Chemical']
+		bact = ['bacteriological_compliance_percentage', 'Bacteriological']
+		bio = ['biological_compliance_percentage', 'Biological']
+		overall = ['overall_compliance_percentage', 'Overall']
 		col1, col2, col3, col4, col5 = st.columns(5)
 		with col1:
 				display_compliance(df=vaal_df, year=year, quarter=quarter, site_name=site_name, column=phys)

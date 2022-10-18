@@ -12,8 +12,7 @@ import randDataProvider as RD
 
 #References
 """
-- Popup: https://towardsdatascience.com/folium-map-how-to-create-a-table-style-pop-up-with-html-code-76903706b88a
-- popup+: https://towardsdatascience.com/use-html-in-folium-maps-a-comprehensive-guide-for-data-scientists-3af10baf9190
+- popup: https://towardsdatascience.com/use-html-in-folium-maps-a-comprehensive-guide-for-data-scientists-3af10baf9190
 - Legend: https://nbviewer.org/gist/talbertc-usgs/18f8901fc98f109f2b71156cf3ac81cd
 
 - Icons: https://getbootstrap.com/docs/3.3/components/#glyphicons-glyphs
@@ -128,20 +127,8 @@ def popup_html(df):
 		
 		html = """<!DOCTYPE html>
 
-<center><img src=\"""" + institution_img + """\" alt="logo" width=50 height=50 ></center>
-<center><h4 style="margin-bottom:5"; width="200px">{}</h4>""".format(site_description) + """</center>
-<center><a href=\"""" + institution_url + """\">Go to the Institution's Website</a></center>
-<center> <table style="height: 30px; width: 350px;">
-<tbody>
-<tr>
-<td style="background-color: """+ left_col_color +""";"><span style="color: #000000;">Sample ID</span></td>
-<td style="width: 150px;background-color: """+ right_col_color +""";">{}</td>""".format(sample_id) + """
-</tr>
-</tbody>
-</table>
-<br />
-<br />
-</center>
+<center><h5 style="margin-bottom:5"; width="200px">{}</h4>""".format(site_description) + """</center>
+
 </html>
 """
 		return html

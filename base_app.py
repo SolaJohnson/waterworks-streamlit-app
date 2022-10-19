@@ -235,9 +235,9 @@ query = '''
     ON ra.river_id = ri.river_id
 
     '''
-df = rd.get_data(query)
+data = rd.get_data(query)
 
-df = df.fillna(0)
+data = data.fillna(0)
 
  
 if selection == "Home":
@@ -317,7 +317,7 @@ else:
             A data enthusiast, skilled in Data Visualization with Pandas, Power BI and Machine Learning using Python, PySpark, ScikitLearn, Tensorflow, Serverless Machine Learning.
             """)
 
-    st.header("Ehibhahiemen - Data Engineer")
+    st.header("Ehibhahiemen Ughele - Data Engineer")
     ehi, text5 = st.columns((1,2))
     
     with ehi:
@@ -344,6 +344,7 @@ if selection == 'Time Series':
     river = st.sidebar.selectbox("Select a river", rivers)
 
     if river == 'Vaal':
+        df = data.copy()
         df = df.loc[df['river_id'] == 1]
         
 
@@ -629,6 +630,8 @@ if selection == 'Time Series':
             st.plotly_chart(fig)
     
     if river == 'Blesbokspruit':
+
+        df = data.copy()
         df = df.loc[df['river_id'] == 2]
 
         # Step: Sort column(s) year ascending (A-Z), qtr ascending (A-Z)
@@ -912,7 +915,8 @@ if selection == 'Time Series':
             st.plotly_chart(fig)
 
     if river == 'Klip':
-        df = df.loc[df['river_id'] == 1]
+        df = data.copy()
+        df = df.loc[df['river_id'] == 3]
 
         # Step: Sort column(s) year ascending (A-Z), qtr ascending (A-Z)
         df = df.sort_values(by=['year', 'qtr'], ascending=[True, True])

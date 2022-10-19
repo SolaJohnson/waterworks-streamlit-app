@@ -207,7 +207,7 @@ def add_bg_from_local(image_file):
     """,
     unsafe_allow_html=True
     )
-add_bg_from_local('background img.png')  
+add_bg_from_local('Images/background img.png')  
 
 # Design horizontal bar
 menu = ["Home", "Water Quality", "Time Series", "About us"]
@@ -254,12 +254,12 @@ else:
     st.subheader('')
     st.subheader("About Team")
     st.markdown(" ")
-    mikey_pic = Image.open("MIKEY.jpg")
-    emeka_pic = Image.open("EMEKA.jpeg")
-    bodine_pic = Image.open("bodine.jpeg")
-    othuke_pic = Image.open("Othuke.jpeg")
-    joseph_pic = Image.open("Joseph.jpeg")
-    ehi_pic = Image.open("Ehi.jpg")
+    mikey_pic = Image.open("Images/MIKEY.jpg")
+    emeka_pic = Image.open("Images/EMEKA.jpeg")
+    bodine_pic = Image.open("Images/bodine.jpeg")
+    othuke_pic = Image.open("Images/Othuke.jpeg")
+    joseph_pic = Image.open("Images/Joseph.jpeg")
+    ehi_pic = Image.open("Images/Ehi.jpg")
 
 
     st.header("Bodine Mazibuko - Team Leader")
@@ -329,7 +329,7 @@ else:
              Spark as well as a careful integration of pipelines or cloud related services solutions leveraging on AWS and AZURE.""")
 
 #Landing page
-landing = Image.open('waterworksRS (2).png')
+landing = Image.open('Images/waterworksRS (2).png')
 if selection == "Home":
     st.image(landing)
 

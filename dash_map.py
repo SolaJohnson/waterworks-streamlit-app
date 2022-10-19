@@ -16,6 +16,10 @@ import randDataProvider as RD
 
 - Icons: https://getbootstrap.com/docs/3.3/components/#glyphicons-glyphs
 """
+"""
+May the ghosts of braincells that unalived themselves while working on this code guide you
+and may the tears shed provide you with comfort that you can do it.
+"""
 
 
 # Legend template
@@ -228,7 +232,7 @@ def display_compliance_wwtp(
 def map(df, df2, only1, only2, only3, only4, only5):
     vaal_map = fl.Map(
         location=[-26.3584, 28.17648],
-        zoom_start=8.3,
+        zoom_start=8.5,
         scrollWheelZoom=False,
         tiles="Stamen Terrain",
     )
@@ -312,7 +316,7 @@ def map(df, df2, only1, only2, only3, only4, only5):
     fl.LayerControl().add_to(vaal_map)
 
     st_map = st_folium(vaal_map, width=700, height=450)
-
+    # Don't change this code unless you want to have a bad time or you have a better WORKING method
     site_name = ""
     try:
         if st_map["last_active_drawing"]:
@@ -416,7 +420,7 @@ def main():
     # wwtp col titles
     p_class = ["plant_class", "Plant Class"]
     discharge = ["river_discharge", "River Discharge"]
-    amnt = ["discharge_amount(kl/day)", "Discharge Amount(kl/day)"]
+    amnt = ["discharge_amount_kl_per_day", "Discharge Amount(kl/day)"]
     tests = ["tests", "No of Tests"]
     fail = ["failures", "No of Failures"]
 

@@ -1,4 +1,4 @@
-# # %%
+# import libraries
 import streamlit as st
 import pandas as pd
 import folium as fl
@@ -15,6 +15,10 @@ import randDataProvider as RD
 - Legend: https://nbviewer.org/gist/talbertc-usgs/18f8901fc98f109f2b71156cf3ac81cd
 
 - Icons: https://getbootstrap.com/docs/3.3/components/#glyphicons-glyphs
+"""
+"""
+May the ghosts of braincells that unalived themselves while working on this code guide you
+and may the tears shed provide you with comfort that you can do it.
 """
 
 
@@ -114,20 +118,36 @@ template = """
 
 # Popup function
 def popup_html(df):
-    site_description = df["sample_pt_desc"]
+    try:
+        site_description = df["sample_pt_desc"]
 
-    html = (
-        """<!DOCTYPE html>
+        html = (
+            """<!DOCTYPE html>
 
-<center><h5 style="margin-bottom:5"; width="200px">{}</h4>""".format(
-            site_description
+	<center><h5 style="margin-bottom:5"; width="200px">{}</h4>""".format(
+                site_description
+            )
+            + """</center>
+
+	</html>
+	"""
         )
-        + """</center>
+        return html
+    except KeyError:
+        site_description = df["treatment_works"]
 
-</html>
-"""
-    )
-    return html
+        html = (
+            """<!DOCTYPE html>
+
+	<center><h5 style="margin-bottom:5"; width="200px">{}</h4>""".format(
+                site_description
+            )
+            + """</center>
+
+	</html>
+	"""
+        )
+        return html
 
 
 # Compliance color chooser function
@@ -159,14 +179,14 @@ def display_site_filter(df, site_name):
     site_index = (
         site_list.index(site_name) if site_name and site_name in site_list else 0
     )
-    return st.sidebar.selectbox("Site", site_list, site_index)
+    return st.sidebar.selectbox("Select Site", site_list, site_index)
 
 
 # Parameter selection function
 def display_param_filter():
     param_list = [""] + ["cod", "conductivity", "e_coli", "nitrate", "pH", "phosphate"]
     param_list.sort()
-    return st.sidebar.selectbox("Parameter", param_list)
+    return st.sidebar.selectbox("Filter by Parameter", param_list)
 
 
 # Parameter thresholds function
@@ -185,8 +205,8 @@ def param_filter(param):
         return 0, 0.05
 
 
-# Get compliances function
-def display_compliance(
+# Get test site compliances function
+def display_compliance_test_site(
     df, year, quarter, site_name, column, string_format="${:,}", is_median=False
 ):
     df = df[(df["year"] == year) & (df["quarter"] == quarter)]
@@ -197,14 +217,22 @@ def display_compliance(
     st.metric(column[1], f"{round(df[column[0]].mean(),2)}%")
 
 
-# def display_site_type_filter():
-#     return st.sidebar.radio('Site Type', ['test', 'effluent'])
+# Get wwtp compliances function
+def display_compliance_wwtp(
+    df, site_name, column, string_format="${:,}", is_median=False
+):
+    if site_name:
+        df = df[df["treatment_works"] == site_name[0]]
+    df.drop_duplicates(inplace=True)
+
+    st.metric(column[1], df[column[0]].item())
+
 
 # Map creation function
-def map(df, only1, only2, only3, only4, only5):
+def map(df, df2, only1, only2, only3, only4, only5):
     vaal_map = fl.Map(
-        location=[-26.454, 28.085],
-        zoom_start=9,
+        location=[-26.3584, 28.17648],
+        zoom_start=8.5,
         scrollWheelZoom=False,
         tiles="Stamen Terrain",
     )
@@ -247,6 +275,7 @@ def map(df, only1, only2, only3, only4, only5):
     )
     vaal_map.add_children(river)
 
+    # Test sites
     vaal = fl.FeatureGroup(name="Vaal")
 
     for _, site in df.iterrows():
@@ -263,6 +292,22 @@ def map(df, only1, only2, only3, only4, only5):
         )
     vaal_map.add_children(vaal)
 
+    # WWTP sites
+    wwtp = fl.FeatureGroup(name="WWTP")
+
+    for _, site in df2.iterrows():
+        wwtp.add_children(
+            fl.Marker(
+                location=[site["lat"], site["long"]],
+                popup=fl.Popup(fl.Html(popup_html(site), script=True), max_width=500),
+                tooltip=site["treatment_works"],
+                icon=fl.Icon(
+                    color="white", icon="fa-industry", prefix="fa", icon_color="black"
+                ),
+            )
+        )
+    vaal_map.add_children(wwtp)
+
     macro = MacroElement()
     macro._template = Template(template)
 
@@ -271,23 +316,33 @@ def map(df, only1, only2, only3, only4, only5):
     fl.LayerControl().add_to(vaal_map)
 
     st_map = st_folium(vaal_map, width=700, height=450)
-
+    # Don't change this code unless you want to have a bad time or you have a better WORKING method
     site_name = ""
-    if st_map["last_active_drawing"]:
-        coordinates = st_map["last_active_drawing"]["geometry"]["coordinates"]
-        site_name = df["sample_pt_desc"][
-            (df["latitude"] == coordinates[1]) & (df["longitude"] == coordinates[0])
-        ].item()
+    try:
+        if st_map["last_active_drawing"]:
+            coordinates = st_map["last_active_drawing"]["geometry"]["coordinates"]
+            site_name = df["sample_pt_desc"][
+                (df["latitude"] == coordinates[1]) & (df["longitude"] == coordinates[0])
+            ].item()
+        return site_name
+    except ValueError:
+        if st_map["last_active_drawing"]:
+            coordinates = st_map["last_active_drawing"]["geometry"]["coordinates"]
+            site_name = list(
+                df2["treatment_works"][
+                    (df2["lat"] == coordinates[1]) & (df2["long"] == coordinates[0])
+                ]
+            )
 
-    return site_name
+        return site_name
 
 
 # Map display function
-def display_map(df, year, quarter, param, only1, only2, only3, only4, only5):
+def display_map(df, df2, year, quarter, param, only1, only2, only3, only4, only5):
     if param == "":
         df = df[(df["year"] == year) & (df["quarter"] == quarter)]
 
-        return map(df, only1, only2, only3, only4, only5)
+        return map(df, df2, only1, only2, only3, only4, only5)
     else:
         low_end, high_end = param_filter(param)
         df = df[
@@ -296,38 +351,44 @@ def display_map(df, year, quarter, param, only1, only2, only3, only4, only5):
             & ((df[param] < low_end) | (df[param] > high_end))
         ]
 
-        return map(df, only1, only2, only3, only4, only5)
+        return map(df, df2, only1, only2, only3, only4, only5)
 
 
 # Load data from databricks function
 @st.cache(persist=True, ttl=3600)
-def get_data_from_databricks(query):
-    data = RD.get_data(query)
-    data.to_csv("data/merged.csv", index=False)
-    return data
+def get_data_from_databricks(test_sites_query, wwtp_query):
+    test_sites = RD.get_data(test_sites_query)
+    wwtp_sites = RD.get_data(wwtp_query)
+    test_sites.to_csv("data/merged.csv", index=False)
+    wwtp_sites.to_csv("data/wwtp.csv", index=False)
+    return test_sites, wwtp_sites
 
 
 def main():
 
-    # Load Data
-    query = """
+    test_sites_query = """
 
-        SELECT sp.sample_pt_desc, sp.latitude, sp.longitude, sp.sample_id, ra.year, ra.quarter, ra.cod, ra.conductivity, ra.e_coli,
-                ra.pH, ra.nitrate, ra.phosphate, ra.physical_compliance_percentage, ra.chemical_compliance_percentage,
-                ra.bacteriological_compliance_percentage, 
-                ra.biological_compliance_percentage, ra.overall_compliance_percentage, ri.river
+		SELECT sp.sample_pt_desc, sp.latitude, sp.longitude, sp.sample_id, ra.year, ra.quarter, ra.cod, ra.conductivity, ra.e_coli,
+				ra.pH, ra.nitrate, ra.phosphate, ra.physical_compliance_percentage, ra.chemical_compliance_percentage,
+				ra.bacteriological_compliance_percentage, 
+				ra.biological_compliance_percentage, ra.overall_compliance_percentage, ri.river
 
-        FROM rand as ra
-        INNER JOIN sampling_points as sp
-        ON ra.sample_id = sp.sample_id
-        INNER JOIN rivers as ri
-        ON ra.river_id = ri.river_id
+		FROM rand as ra
+		INNER JOIN sampling_points as sp
+		ON ra.sample_id = sp.sample_id
+		INNER JOIN rivers as ri
+		ON ra.river_id = ri.river_id
 
-        """
+		"""
+    wwtp_query = """
+		SELECT *
+
+		FROM wwtp
+	"""
 
     # Load data
-    vaal_df = get_data_from_databricks(query)
-    # vaal_df = pd.read_csv('data/merged.csv')
+    test_sites_df, wwtp_df = get_data_from_databricks(test_sites_query, wwtp_query)
+    # test_sites_df = pd.read_csv('data/merged.csv')
     only1 = gpd.read_file("data/river/only1.shp")
     only2 = gpd.read_file("data/river/only2.shp")
     only3 = gpd.read_file("data/river/only3.shp")
@@ -335,45 +396,109 @@ def main():
     only5 = gpd.read_file("data/river/only5.shp")
 
     # Display Filters and Map
-    year, quarter = display_time_filters(vaal_df)
+    year, quarter = display_time_filters(test_sites_df)
     param = display_param_filter()
     site_name = display_map(
-        vaal_df, year, quarter, param, only1, only2, only3, only4, only5
+        test_sites_df, wwtp_df, year, quarter, param, only1, only2, only3, only4, only5
     )
-    site_name = display_site_filter(vaal_df, site_name)
-    # site_type = display_site_type_filter()
+    if site_name in list(test_sites_df["sample_pt_desc"]) or site_name == "":
+        site_name = display_site_filter(test_sites_df, site_name)
 
     # Display Metrics
-    st.subheader(f"{site_name} Compliance")
-    # st.subheader(f'{site_name} {site_type} Facts')
+    if type(site_name) == list:
+        st.subheader(f"{site_name[0]} Compliance")
+    else:
+        st.subheader(f"{site_name} Compliance")
 
-    # col titles
+    # test site col titles
     phys = ["physical_compliance_percentage", "Physical"]
     chem = ["chemical_compliance_percentage", "Chemical"]
     bact = ["bacteriological_compliance_percentage", "Bacteriological"]
     bio = ["biological_compliance_percentage", "Biological"]
     overall = ["overall_compliance_percentage", "Overall"]
-    col1, col2, col3, col4, col5 = st.columns(5)
-    with col1:
-        display_compliance(
-            df=vaal_df, year=year, quarter=quarter, site_name=site_name, column=phys
-        )
-    with col2:
-        display_compliance(
-            df=vaal_df, year=year, quarter=quarter, site_name=site_name, column=chem
-        )
-    with col3:
-        display_compliance(
-            df=vaal_df, year=year, quarter=quarter, site_name=site_name, column=bact
-        )
-    with col4:
-        display_compliance(
-            df=vaal_df, year=year, quarter=quarter, site_name=site_name, column=bio
-        )
-    with col5:
-        display_compliance(
-            df=vaal_df, year=year, quarter=quarter, site_name=site_name, column=overall
-        )
+
+    # wwtp col titles
+    p_class = ["plant_class", "Plant Class"]
+    discharge = ["river_discharge", "River Discharge"]
+    amnt = ["discharge_amount_kl_per_day", "Discharge Amount(kl/day)"]
+    tests = ["tests", "No of Tests"]
+    fail = ["failures", "No of Failures"]
+
+    if site_name in list(test_sites_df["sample_pt_desc"]) or site_name == "":
+        col1, col2, col3, col4, col5 = st.columns(5)
+        with col1:
+            display_compliance_test_site(
+                df=test_sites_df,
+                year=year,
+                quarter=quarter,
+                site_name=site_name,
+                column=phys,
+            )
+        with col2:
+            display_compliance_test_site(
+                df=test_sites_df,
+                year=year,
+                quarter=quarter,
+                site_name=site_name,
+                column=chem,
+            )
+        with col3:
+            display_compliance_test_site(
+                df=test_sites_df,
+                year=year,
+                quarter=quarter,
+                site_name=site_name,
+                column=bact,
+            )
+        with col4:
+            display_compliance_test_site(
+                df=test_sites_df,
+                year=year,
+                quarter=quarter,
+                site_name=site_name,
+                column=bio,
+            )
+        with col5:
+            display_compliance_test_site(
+                df=test_sites_df,
+                year=year,
+                quarter=quarter,
+                site_name=site_name,
+                column=overall,
+            )
+    else:
+        col1, col2, col3 = st.columns([1, 2, 1])
+        with col1:
+            display_compliance_wwtp(
+                df=wwtp_df,
+                site_name=site_name,
+                column=p_class,
+            )
+        with col2:
+            display_compliance_wwtp(
+                df=wwtp_df,
+                site_name=site_name,
+                column=discharge,
+            )
+        with col3:
+            display_compliance_wwtp(
+                df=wwtp_df,
+                site_name=site_name,
+                column=amnt,
+            )
+        cpad1, col4, col5, pad2 = st.columns(([1, 1, 1, 1]))
+        with col4:
+            display_compliance_wwtp(
+                df=wwtp_df,
+                site_name=site_name,
+                column=tests,
+            )
+        with col5:
+            display_compliance_wwtp(
+                df=wwtp_df,
+                site_name=site_name,
+                column=fail,
+            )
 
 
 if __name__ == "__main__":

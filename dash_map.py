@@ -8,6 +8,9 @@ import geopandas as gpd
 from branca.element import Template, MacroElement
 import randDataProvider as RD
 
+# Clear streamlit cache code to run on cmd
+# streamlit cache clear
+
 
 # References
 """
@@ -355,7 +358,7 @@ def display_map(df, df2, year, quarter, param, only1, only2, only3, only4, only5
 
 
 # Load data from databricks function
-@st.cache(persist=True, ttl=3600)
+@st.cache(suppress_st_warning=True)
 def get_data_from_databricks(test_sites_query, wwtp_query):
     test_sites = RD.get_data(test_sites_query)
     wwtp_sites = RD.get_data(wwtp_query)

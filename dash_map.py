@@ -1,4 +1,4 @@
-# # %%
+# import libraries
 import streamlit as st
 import pandas as pd
 import folium as fl
@@ -217,19 +217,12 @@ def display_compliance_test_site(
 def display_compliance_wwtp(
     df, site_name, column, string_format="${:,}", is_median=False
 ):
-    # df.to_csv("df.csv")
-    # import numpy as np
-
-    # np.savetxt("sitename.csv", site_name, delimiter=", ", fmt="% s")
     if site_name:
         df = df[df["treatment_works"] == site_name[0]]
     df.drop_duplicates(inplace=True)
 
     st.metric(column[1], df[column[0]].item())
 
-
-# def display_site_type_filter():
-#     return st.sidebar.radio('Site Type', ['test', 'effluent'])
 
 # Map creation function
 def map(df, df2, only1, only2, only3, only4, only5):
@@ -406,14 +399,12 @@ def main():
     )
     if site_name in list(test_sites_df["sample_pt_desc"]) or site_name == "":
         site_name = display_site_filter(test_sites_df, site_name)
-    # site_type = display_site_type_filter()
 
     # Display Metrics
     if type(site_name) == list:
         st.subheader(f"{site_name[0]} Compliance")
     else:
         st.subheader(f"{site_name} Compliance")
-    # st.subheader(f'{site_name} {site_type} Facts')
 
     # test site col titles
     phys = ["physical_compliance_percentage", "Physical"]

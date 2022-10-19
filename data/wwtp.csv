@@ -1,4 +1,4 @@
-treatment_works,plant_class,river_discharge,discharge_amount(kl/day),failures,tests,last_date_monitored,lat,long,main_business
+treatment_works,plant_class,river_discharge,discharge_amount_kl_per_day,failures,tests,last_date_monitored,lat,long,main_business
 Ancor,B,Blesbokspruit Wetland,15000,1079,3753,44804.0,-26.27135,28.47953,Water Service Authority
 Benoni,C,,16000,124,3463,44804.0,-26.2091,28.31713,Water Service Authority
 Bushkoppie,A,Harringtonspruit River,200000,718,3878,44818.0,-26.49916,28.07731,Waste Water Treatment Works
@@ -17,6 +17,6 @@ Randfontein,D,Rietspruit River,20000,17,89,44588.0,-26.16,27.67,Water Service Au
 Ratanda,C,Blesbokspruit River,4700,115,3060,44804.0,-26.58208,28.30355,Water Service Authority
 Rynfield,B,Blesbokspruit River,10000,160,1753,44742.0,-26.16073,28.35793,Water Service Authority
 Tsakane,C,Blesbokspruit River,20000,581,3117,44804.0,-26.37598,28.36593,Waste Water Treatment Works
-Vaal Marina WWTW,C,Vaal Dam,2000,63,98,44774.0,-26.9606,26.7807,Goldmine
+Vaal Marina WWTW,C,Vaal Dam,2000,63,98,44774.0,-26.792847,28.20432,Goldmine
 Waterval WWTW,A,Klip River,170000,533,3638,44804.0,-26.44403,28.10644,Waste Water Treatment Works
 Welgedacht,A,Blesbokspruit Wetland,95000,244,3575,44804.0,-26.18891,28.4733,Water Service Authority

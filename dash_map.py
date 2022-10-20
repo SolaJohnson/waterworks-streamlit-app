@@ -241,48 +241,48 @@ def map(df, df2, only1, only2, only3, only4, only5):
     )
 
     river = fl.FeatureGroup(name="River")
-    river.add_children(
+    river.add_child(
         fl.GeoJson(
             data=only1["geometry"],
             name="Streams",
             style_function=lambda x: {"weight": 1},
         )
     )
-    river.add_children(
+    river.add_child(
         fl.GeoJson(
             data=only2["geometry"],
             name="Tributaries",
             style_function=lambda x: {"weight": 1},
         )
     )
-    river.add_children(
+    river.add_child(
         fl.GeoJson(
             data=only3["geometry"],
             name="River branches",
             style_function=lambda x: {"weight": 2},
         )
     )
-    river.add_children(
+    river.add_child(
         fl.GeoJson(
             data=only4["geometry"],
             name="Main river",
             style_function=lambda x: {"weight": 3},
         )
     )
-    river.add_children(
+    river.add_child(
         fl.GeoJson(
             data=only5["geometry"],
             name="Main river",
             style_function=lambda x: {"weight": 3},
         )
     )
-    vaal_map.add_children(river)
+    vaal_map.add_child(river)
 
     # Test sites
     vaal = fl.FeatureGroup(name="Vaal")
 
     for _, site in df.iterrows():
-        vaal.add_children(
+        vaal.add_child(
             fl.Marker(
                 location=[site["latitude"], site["longitude"]],
                 popup=fl.Popup(fl.Html(popup_html(site), script=True), max_width=500),
@@ -293,13 +293,13 @@ def map(df, df2, only1, only2, only3, only4, only5):
                 ),
             )
         )
-    vaal_map.add_children(vaal)
+    vaal_map.add_child(vaal)
 
     # WWTP sites
     wwtp = fl.FeatureGroup(name="WWTP")
 
     for _, site in df2.iterrows():
-        wwtp.add_children(
+        wwtp.add_child(
             fl.Marker(
                 location=[site["lat"], site["long"]],
                 popup=fl.Popup(fl.Html(popup_html(site), script=True), max_width=500),
@@ -309,7 +309,7 @@ def map(df, df2, only1, only2, only3, only4, only5):
                 ),
             )
         )
-    vaal_map.add_children(wwtp)
+    vaal_map.add_child(wwtp)
 
     macro = MacroElement()
     macro._template = Template(template)

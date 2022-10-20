@@ -56,20 +56,20 @@ def create_plot(df, area, x, y, y_lim, g0, g1, b0, b1, y0, y1, r0, r1):
     # Add shapes
     fig.add_hrect(y0=g0, y1=g1, 
                 annotation_text="Acceptable", annotation_position="right",
-                annotation=dict(font_size=20, font_family="Times New Roman"),
-                fillcolor="green", opacity=0.3, line_width=0)
+                annotation=dict(font_size=10, font_family="Times New Roman"),
+                fillcolor="green", opacity=0.2, line_width=0)
     fig.add_hrect(y0=b0, y1=b1, 
                 annotation_text="Ideal", annotation_position="right",
-                annotation=dict(font_size=20, font_family="Times New Roman"),
-                fillcolor="blue", opacity=0.3, line_width=0)
+                annotation=dict(font_size=10, font_family="Times New Roman"),
+                fillcolor="blue", opacity=0.2, line_width=0)
     fig.add_hrect(y0=y0, y1=y1, 
                 annotation_text="Tolerable", annotation_position="right",
-                annotation=dict(font_size=20, font_family="Times New Roman"),
-                fillcolor="yellow", opacity=0.3, line_width=0)
+                annotation=dict(font_size=10, font_family="Times New Roman"),
+                fillcolor="yellow", opacity=0.2, line_width=0)
     fig.add_hrect(y0=r0, y1=r1, 
                 annotation_text="Unacceptable", annotation_position="right",
-                annotation=dict(font_size=20, font_family="Times New Roman"),
-                fillcolor="red", opacity=0.3, line_width=0)
+                annotation=dict(font_size=10, font_family="Times New Roman"),
+                fillcolor="red", opacity=0.2, line_width=0)
     st.plotly_chart(fig)
 
 
@@ -89,20 +89,20 @@ def make_forecast(df, y ):
             df['day-month'][i] = '31-12'
         
     df['date'] = df['day-month'].astype(str) + ' ' + df['year'].astype(str)
-    df['date'] = pd.to_datetime(df['date'])
+    df['date'] = pd.to_datetime(df['date'], infer_datetime_format=True)
 
     # define the period for which we want a prediction
     future = pd.date_range('2022-06-30', periods=10, freq='Q').tolist()
     future = pd.DataFrame(future)
     future.columns = ['ds']
-    future['ds']= pd.to_datetime(future['ds'])
+    future['ds']= pd.to_datetime(future['ds'], infer_datetime_format=True)
 
     
     # prepare expected column names
     data = pd.DataFrame(columns=['ds', 'y'])
     data['ds'] = df['date']
     data['y'] = df[y]
-    data['ds']= pd.to_datetime(data['ds'])
+    data['ds']= pd.to_datetime(data['ds'], infer_datetime_format=True)
 
     # define the model
     model = Prophet()
@@ -144,7 +144,7 @@ def make_forecast(df, y ):
     x = forecast['ds'],
     y = forecast['yhat_upper'],
     fill='tonexty',
-    fillcolor = 'rgba(26,150,65,0.1)',
+    fillcolor = 'rgba(0,128,128,0.5)',
     name = 'Confidence',
     mode = 'none'
     ))
@@ -157,6 +157,24 @@ def make_forecast(df, y ):
     connectgaps=True,
     name = 'Actual'
     ))
+
+    # Add shapes
+    fig.add_hrect(y0=70, y1=90, 
+                annotation_text="Acceptable", annotation_position="right",
+                annotation=dict(font_size=10, font_family="Times New Roman"),
+                fillcolor="green", opacity=0.2, line_width=0)
+    fig.add_hrect(y0=90, y1=100, 
+                annotation_text="Ideal", annotation_position="right",
+                annotation=dict(font_size=10, font_family="Times New Roman"),
+                fillcolor="blue", opacity=0.2, line_width=0)
+    fig.add_hrect(y0=50, y1=70, 
+                annotation_text="Tolerable", annotation_position="right",
+                annotation=dict(font_size=10, font_family="Times New Roman"),
+                fillcolor="yellow", opacity=0.2, line_width=0)
+    fig.add_hrect(y0=0, y1=50, 
+                annotation_text="Unacceptable", annotation_position="right",
+                annotation=dict(font_size=10, font_family="Times New Roman"),
+                fillcolor="red", opacity=0.2, line_width=0)
 
     fig.update_layout(
         xaxis=dict(
@@ -259,7 +277,12 @@ else:
     bodine_pic = Image.open("Images/bodine.jpeg")
     othuke_pic = Image.open("Images/Othuke.jpeg")
     joseph_pic = Image.open("Images/Joseph.jpeg")
+    johnson_pic = Image.open("Images/Johnson.jpeg")
+    samson_pic = Image.open("Images/Samson.jpg")
+    david_pic = Image.open("Images/David.png")
+    theresa_pic = Image.open("Images/Theresa.jpeg")
     ehi_pic = Image.open("Images/Ehi.jpg")
+    hasan_pic = Image.open("Images/Hasan.jpeg")
 
 
     st.header("Bodine Mazibuko - Team Leader")
@@ -328,6 +351,63 @@ else:
             A detail-oriented data engineer highly proficient in the architecture of data oriented infrastructure and solutions to problem utilising skills such as Python, SQL,
              Spark as well as a careful integration of pipelines or cloud related services solutions leveraging on AWS and AZURE.""")
 
+    st.header("Johnson Amodu - Data Scientist")
+    johnson, text6 = st.columns((1,2))
+    
+    with johnson:
+        st.image(johnson_pic)
+
+    with text6:
+        st.write("""
+            A fast learning Data Scientist highly skilled in data wrangling, EDA, and predictive modeling for business operations and development.
+            """)
+
+    st.header("David Kambo - Data Scientist")
+    david, text7 = st.columns((1,2))
+    
+    with david:
+        st.image(david_pic)
+
+    with text7:
+        st.write("""
+            A data scientist knowledgeable in data wrangling, data analysis, data visualization and machine learning. Pragmatic and meticulous are adjectives that are often used to describe him.
+            """)
+
+    st.header("Theresa Koomson - Data Scientist")
+    theresa, text8 = st.columns((1,2))
+    
+    with theresa:
+        st.image(theresa_pic)
+
+    with text8:
+        st.write("""
+            """)
+
+    st.header("Samson  - Data Scientist")
+    samson, text9 = st.columns((1,2))
+    
+    with samson:
+        st.image(samson_pic)
+
+    with text9:
+        st.write("""
+        A driven data scientist with statistical and predictive analytics skills who can work in a range of data environments. 
+        He has the capability to employ programming and research to improve the efficacy and quality of insight extraction.
+            """)
+
+    st.header("Hasan A-Raji  - Data Scientist")
+    hasan, text10 = st.columns((1,2))
+    
+    with hasan:
+        st.image(hasan_pic)
+
+    with text10:
+        st.write("""
+        A Data Science prodigy with skills in Pandas, Pyspark, SQL, PowerBI, 
+        and Scikitlearn, for Data exploration, analysis, visualisation, and machine learning.
+            """)
+
+    
 #Landing page
 landing = Image.open('Images/waterworksRS (2).png')
 if selection == "Home":
@@ -469,35 +549,35 @@ if selection == 'Time Series':
             # Add shapes
             fig.add_hrect(y0=6.5, y1=7, 
                         annotation_text="Acceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="green", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="green", opacity=0.2, line_width=0)
             
             fig.add_hrect(y0=8.4, y1=8.5,
-                        fillcolor="green", opacity=0.3, line_width=0)
+                        fillcolor="green", opacity=0.2, line_width=0)
 
             fig.add_hrect(y0=7, y1=8.4, 
                         annotation_text="Ideal", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="blue", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="blue", opacity=0.2, line_width=0)
 
             fig.add_hrect(y0=6, y1=6.5, 
                         annotation_text="Tolerable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="yellow", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="yellow", opacity=0.2, line_width=0)
             
             fig.add_hrect(y0=8.5, y1=9, 
                         annotation_text="Tolerable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="yellow", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="yellow", opacity=0.2, line_width=0)
 
             fig.add_hrect(y0=0, y1=6, 
                         annotation_text="Unacceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="red", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="red", opacity=0.2, line_width=0)
             fig.add_hrect(y0=9, y1=11, 
                         annotation_text="Unacceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="red", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="red", opacity=0.2, line_width=0)
             st.plotly_chart(fig)
 
         
@@ -541,20 +621,20 @@ if selection == 'Time Series':
             # Add shapes
             fig.add_hrect(y0=130, y1=200, 
                         annotation_text="Acceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="green", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="green", opacity=0.2, line_width=0)
             fig.add_hrect(y0=0, y1=130, 
                         annotation_text="Ideal", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="blue", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="blue", opacity=0.2, line_width=0)
             fig.add_hrect(y0=200, y1=400, 
                         annotation_text="Tolerable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="yellow", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="yellow", opacity=0.2, line_width=0)
             fig.add_hrect(y0=400, y1=100000, 
                         annotation_text="Unacceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="red", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="red", opacity=0.2, line_width=0)
             
             st.plotly_chart(fig)
 
@@ -617,16 +697,16 @@ if selection == 'Time Series':
             
             # Add shapes
             fig.add_hrect(y0=0, y1=0.03, 
-                        fillcolor="green", opacity=0.3, line_width=0)
+                        fillcolor="green", opacity=0.2, line_width=0)
             fig.add_hrect(y0=0, y1=0, 
-                        fillcolor="blue", opacity=0.3, line_width=0)
+                        fillcolor="blue", opacity=0.2, line_width=0)
             fig.add_hrect(y0=0.03, y1=0.05, 
-                        fillcolor="yellow", opacity=0.3, line_width=0)
+                        fillcolor="yellow", opacity=0.2, line_width=0)
 
             fig.add_hrect(y0=0.05, y1=3, 
                         annotation_text="Unacceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="red",opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="red",opacity=0.2, line_width=0)
             st.plotly_chart(fig)
     
     if river == 'Blesbokspruit':
@@ -754,35 +834,35 @@ if selection == 'Time Series':
             # Add shapes
             fig.add_hrect(y0=6.5, y1=7, 
                         annotation_text="Acceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="green", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="green", opacity=0.2, line_width=0)
             
             fig.add_hrect(y0=8.4, y1=8.5,
-                        fillcolor="green", opacity=0.3, line_width=0)
+                        fillcolor="green", opacity=0.2, line_width=0)
 
             fig.add_hrect(y0=7, y1=8.4, 
                         annotation_text="Ideal", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="blue", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="blue", opacity=0.2, line_width=0)
 
             fig.add_hrect(y0=6, y1=6.5, 
                         annotation_text="Tolerable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="yellow", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="yellow", opacity=0.2, line_width=0)
             
             fig.add_hrect(y0=8.5, y1=9, 
                         annotation_text="Tolerable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="yellow", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="yellow", opacity=0.2, line_width=0)
 
             fig.add_hrect(y0=0, y1=6, 
                         annotation_text="Unacceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="red", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="red", opacity=0.2, line_width=0)
             fig.add_hrect(y0=9, y1=11, 
                         annotation_text="Unacceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="red", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="red", opacity=0.2, line_width=0)
             st.plotly_chart(fig)
 
         
@@ -826,20 +906,20 @@ if selection == 'Time Series':
             # Add shapes
             fig.add_hrect(y0=130, y1=200, 
                         annotation_text="Acceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="green", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="green", opacity=0.2, line_width=0)
             fig.add_hrect(y0=0, y1=130, 
                         annotation_text="Ideal", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="blue", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="blue", opacity=0.2, line_width=0)
             fig.add_hrect(y0=200, y1=400, 
                         annotation_text="Tolerable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="yellow", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="yellow", opacity=0.2, line_width=0)
             fig.add_hrect(y0=400, y1=100000, 
                         annotation_text="Unacceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="red", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="red", opacity=0.2, line_width=0)
             
             st.plotly_chart(fig)
 
@@ -902,16 +982,16 @@ if selection == 'Time Series':
             
             # Add shapes
             fig.add_hrect(y0=0, y1=0.03, 
-                        fillcolor="green", opacity=0.3, line_width=0)
+                        fillcolor="green", opacity=0.2, line_width=0)
             fig.add_hrect(y0=0, y1=0, 
-                        fillcolor="blue", opacity=0.3, line_width=0)
+                        fillcolor="blue", opacity=0.2, line_width=0)
             fig.add_hrect(y0=0.03, y1=0.05, 
-                        fillcolor="yellow", opacity=0.3, line_width=0)
+                        fillcolor="yellow", opacity=0.2, line_width=0)
 
             fig.add_hrect(y0=0.05, y1=3, 
                         annotation_text="Unacceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="red",opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="red",opacity=0.2, line_width=0)
             st.plotly_chart(fig)
 
     if river == 'Klip':
@@ -1038,35 +1118,35 @@ if selection == 'Time Series':
             # Add shapes
             fig.add_hrect(y0=6.5, y1=7, 
                         annotation_text="Acceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="green", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="green", opacity=0.2, line_width=0)
             
             fig.add_hrect(y0=8.4, y1=8.5,
-                        fillcolor="green", opacity=0.3, line_width=0)
+                        fillcolor="green", opacity=0.2, line_width=0)
 
             fig.add_hrect(y0=7, y1=8.4, 
                         annotation_text="Ideal", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="blue", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="blue", opacity=0.2, line_width=0)
 
             fig.add_hrect(y0=6, y1=6.5, 
                         annotation_text="Tolerable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="yellow", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="yellow", opacity=0.2, line_width=0)
             
             fig.add_hrect(y0=8.5, y1=9, 
                         annotation_text="Tolerable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="yellow", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="yellow", opacity=0.2, line_width=0)
 
             fig.add_hrect(y0=0, y1=6, 
                         annotation_text="Unacceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="red", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="red", opacity=0.2, line_width=0)
             fig.add_hrect(y0=9, y1=11, 
                         annotation_text="Unacceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="red", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="red", opacity=0.2, line_width=0)
             st.plotly_chart(fig)
 
         
@@ -1110,20 +1190,20 @@ if selection == 'Time Series':
             # Add shapes
             fig.add_hrect(y0=130, y1=200, 
                         annotation_text="Acceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="green", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="green", opacity=0.2, line_width=0)
             fig.add_hrect(y0=0, y1=130, 
                         annotation_text="Ideal", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="blue", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="blue", opacity=0.2, line_width=0)
             fig.add_hrect(y0=200, y1=400, 
                         annotation_text="Tolerable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="yellow", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="yellow", opacity=0.2, line_width=0)
             fig.add_hrect(y0=400, y1=100000, 
                         annotation_text="Unacceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="red", opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="red", opacity=0.2, line_width=0)
             
             st.plotly_chart(fig)
 
@@ -1186,16 +1266,16 @@ if selection == 'Time Series':
             
             # Add shapes
             fig.add_hrect(y0=0, y1=0.03, 
-                        fillcolor="green", opacity=0.3, line_width=0)
+                        fillcolor="green", opacity=0.2, line_width=0)
             fig.add_hrect(y0=0, y1=0, 
-                        fillcolor="blue", opacity=0.3, line_width=0)
+                        fillcolor="blue", opacity=0.2, line_width=0)
             fig.add_hrect(y0=0.03, y1=0.05, 
-                        fillcolor="yellow", opacity=0.3, line_width=0)
+                        fillcolor="yellow", opacity=0.2, line_width=0)
 
             fig.add_hrect(y0=0.05, y1=3, 
                         annotation_text="Unacceptable", annotation_position="right",
-                        annotation=dict(font_size=20, font_family="Times New Roman"),
-                        fillcolor="red",opacity=0.3, line_width=0)
+                        annotation=dict(font_size=10, font_family="Times New Roman"),
+                        fillcolor="red",opacity=0.2, line_width=0)
             st.plotly_chart(fig)
 
 #Interactive map page

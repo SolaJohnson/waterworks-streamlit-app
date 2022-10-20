@@ -187,25 +187,33 @@ def display_site_filter(df, site_name):
 
 # Parameter selection function
 def display_param_filter():
-    param_list = [""] + ["cod", "conductivity", "e_coli", "nitrate", "pH", "phosphate"]
+    param_list = [""] + [
+        "Chemical Oxygen Demand",
+        "Conductivity",
+        "E.coli",
+        "Nitrate (NO3 as N)",
+        "pH",
+        "Phosphate (PO4 as P)",
+    ]
+    # ["cod", "conductivity", "e_coli", "nitrate", "pH", "phosphate"]
     param_list.sort()
     return st.sidebar.selectbox("Filter by Parameter", param_list)
 
 
 # Parameter thresholds function
 def param_filter(param):
-    if param == "e_coli":
-        return 0, 400
-    elif param == "cod":
-        return 0, 30
-    elif param == "conductivity":
-        return 0, 70
-    elif param == "nitrate":
-        return 0, 6
+    if param == "E.coli":
+        return 0, 400, "e_coli"
+    elif param == "Chemical Oxygen Demand":
+        return 0, 30, "cod"
+    elif param == "Conductivity":
+        return 0, 70, "conductivity"
+    elif param == "Nitrate (NO3 as N)":
+        return 0, 6, "nitrate"
     elif param == "pH":
-        return 6, 9
-    elif param == "phosphate":
-        return 0, 0.05
+        return 6, 9, "pH"
+    elif param == "Phosphate (PO4 as P)":
+        return 0, 0.05, "phosphate"
 
 
 # Get test site compliances function
@@ -347,11 +355,11 @@ def display_map(df, df2, year, quarter, param, only1, only2, only3, only4, only5
 
         return map(df, df2, only1, only2, only3, only4, only5)
     else:
-        low_end, high_end = param_filter(param)
+        low_end, high_end, actual = param_filter(param)
         df = df[
             (df["year"] == year)
             & (df["quarter"] == quarter)
-            & ((df[param] < low_end) | (df[param] > high_end))
+            & ((df[actual] < low_end) | (df[actual] > high_end))
         ]
 
         return map(df, df2, only1, only2, only3, only4, only5)

@@ -370,8 +370,8 @@ def display_map(df, df2, year, quarter, param, only1, only2, only3, only4, only5
 def get_data_from_databricks(test_sites_query, wwtp_query):
     test_sites = RD.get_data(test_sites_query)
     wwtp_sites = RD.get_data(wwtp_query)
-    test_sites.to_csv("data/merged.csv", index=False)
-    wwtp_sites.to_csv("data/wwtp.csv", index=False)
+    # test_sites.to_csv("data/merged.csv", index=False)
+    # wwtp_sites.to_csv("data/wwtp.csv", index=False)
     return test_sites, wwtp_sites
 
 

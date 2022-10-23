@@ -3,6 +3,7 @@ import pybase64
 import pandas as pd
 import numpy as np
 from streamlit_option_menu import option_menu
+import pickle
 from PIL import Image
 import plotly.graph_objects as go
 import dash_map as dm
@@ -106,7 +107,11 @@ def make_forecast(df, y, para ):
     # fit the model
     model.fit(data)
 
+    #save model as pickle file
+    #pickle.dump(model, open("data/model.sav", 'wb'))
+
     # use the model to make a forecast
+    #model = pickle.load(open("data/model.sav", 'rb'))
     forecast = model.predict(future)   
 
     #plot forecast
@@ -229,27 +234,41 @@ def river_plot(id, df):
 
     if param == 'Overall Compliance':
 
-        para = st.sidebar.radio('', ['Physical', 'Chemical', 'Overall']) 
-
-        #create options for catchment area
-        options = df['sample_pt_desc'].unique().tolist()
-        area = st.sidebar.selectbox("Choose Catchment area", options)
-        
-    
-        #filter by catchment area
-        df = df.loc[df['sample_pt_desc'] == area]
+        para = st.sidebar.radio('', ['Physical', 'Chemical', 'Overall'])
 
         
         
         if para == 'Physical':
 
+            #create options for catchment area
+            options = df['sample_pt_desc'].loc[df['physical_compliance_percentage'] > 0].unique().tolist()
+            area = st.sidebar.selectbox("Choose Catchment area", options)
+           
+            #filter by catchment area
+            df = df.loc[df['sample_pt_desc'] == area]
+            
             make_forecast(df, 'physical_compliance_percentage', para)
 
         if para == 'Chemical':
 
+            #create options for catchment area
+            options = df['sample_pt_desc'].loc[df['chemical_compliance_percentage'] > 0].unique().tolist()
+            area = st.sidebar.selectbox("Choose Catchment area", options)
+
+            #filter by catchment area
+            df = df.loc[df['sample_pt_desc'] == area]
+
+
             make_forecast(df, 'chemical_compliance_percentage', para)
 
         if para == 'Overall':
+
+            #create options for catchment area
+            options = df['sample_pt_desc'].loc[df['overall_compliance_percentage'] > 0].unique().tolist()
+            area = st.sidebar.selectbox("Choose Catchment area", options)
+
+            #filter by catchment area
+            df = df.loc[df['sample_pt_desc'] == area]
             
             make_forecast(df, 'overall_compliance_percentage', para)
 
@@ -260,7 +279,7 @@ def river_plot(id, df):
         start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
 
         #create options for catchment area
-        options = df['sample_pt_desc'].unique().tolist()
+        options = df['sample_pt_desc'].loc[df['cod'] > 0].unique().tolist()
         area = st.sidebar.selectbox("Choose Catchment area", options)
 
         #Filter data by catchment area
@@ -280,7 +299,7 @@ def river_plot(id, df):
         start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
 
         #catchment area options
-        options = df['sample_pt_desc'].unique().tolist()
+        options = df['sample_pt_desc'].loc[df['conductivity'] > 0].unique().tolist()
         area = st.sidebar.selectbox("Choose Catchment area", options)
 
         #filter by catchment area
@@ -300,7 +319,7 @@ def river_plot(id, df):
         start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
 
         #options for catchment area
-        options = df['sample_pt_desc'].unique().tolist()
+        options = df['sample_pt_desc'].loc[df['pH'] > 0].unique().tolist()
         area = st.sidebar.selectbox("Choose Catchment area", options)
 
         #filter by catchment area
@@ -376,7 +395,7 @@ def river_plot(id, df):
         start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
 
         #Catchment area options
-        options = df['sample_pt_desc'].unique().tolist()
+        options = df['sample_pt_desc'].loc[df['e_coli'] > 0].unique().tolist()
         area = st.sidebar.selectbox("Choose Catchment area", options)
 
         #filter by catchment area
@@ -397,7 +416,7 @@ def river_plot(id, df):
                 showline=True,
                 showgrid=False,
                 showticklabels=True,
-                tickangle=330),
+                tickangle=330 ),
             yaxis=dict(
                 showgrid=False,
                 zeroline=True,
@@ -405,7 +424,7 @@ def river_plot(id, df):
                 showticklabels=True,
                 title= f'{param} (mg/l)',
                 type='log',
-                range=[0, 6]) )
+                range=[0, 5]) )
         # Add shapes
         fig.add_hrect(y0=130, y1=200, 
                     annotation_text="Acceptable", annotation_position="right",
@@ -433,7 +452,7 @@ def river_plot(id, df):
         start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
 
         #options for catchment area
-        options = df['sample_pt_desc'].unique().tolist()
+        options = df['sample_pt_desc'].loc[df['nitrate'] > 0].unique().tolist()
         area = st.sidebar.selectbox("Choose Catchment area", options)
 
         #filter by catchment area
@@ -453,7 +472,7 @@ def river_plot(id, df):
         start, stop = st.select_slider('Select time frame', options=year, value=('2011', '2022'))
 
         #Catchment area options
-        options = df['sample_pt_desc'].unique().tolist()
+        options = df['sample_pt_desc'].loc[df['phosphate'] > 0].unique().tolist()
         area = st.sidebar.selectbox("Choose Catchment area", options)
 
         #filter by catchment area
